@@ -18,8 +18,9 @@ function language_init() {
 add_action('init', 'language_init');
 
 //Register Ajax Calls file
-require_once(WP_PLUGIN_DIR . '/OBPress_SearchBarPlugin/ajax/registerAjax.php');
-
+if(file_exists(WP_CONTENT_DIR . '/plugins/obpress_plugin_manager/BeApi/BeApi.php')){
+  require_once(WP_PLUGIN_DIR . '/OBPress_SearchBarPlugin/ajax/registerAjax.php');
+}
 //Show Elementor plugins only if api token and chain/hotel are set in the admin
 if(get_option('obpress_api_set') == true){
   require_once('elementor/init.php');
