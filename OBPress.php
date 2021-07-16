@@ -4,7 +4,7 @@
   Plugin uri: www.zyrgon.net
   Text Domain: OBPress_SearchBarPlugin
   Description: Widgets to OBPress
-  Version: 0.0.4
+  Version: 0.0.2
   Author: Zyrgon
   Author uri: www.zyrgon.net
   License: GPlv2 or Later
@@ -27,7 +27,7 @@ if(get_option('obpress_api_set') == true){
 
 require_once(WP_PLUGIN_DIR . '/OBPress_SearchBarPlugin/plugin-update-checker-4.11/plugin-update-checker.php');
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-  'https://github.com/MilosZyrgon/OBPress_SearchBarPlugin',
+  'https://github.com/LukaZyrgon/obpress_searchbar',
   __FILE__,
   'OBPress_SearchBarPlugin'
 );
