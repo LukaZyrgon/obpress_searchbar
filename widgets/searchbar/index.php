@@ -504,10 +504,12 @@ class Searchbar extends \Elementor\Widget_Base
 			if ($hotel_in_folder->IsPropertyFolder == false) {
 				$counter_for_hotel++;
 			}
-			foreach ($removedHotels as $removedHotel) {
-				if (isset($hotel_in_folder->Property_UID) && $hotel_in_folder->Property_UID != null) {
-					if ($hotel_in_folder->Property_UID == $removedHotel) {
-						unset($hotelFolders[$hotel_in_folder_key]);
+			if(isset($removedHotels) && $removedHotels != null) {
+				foreach ($removedHotels as $removedHotel) {
+					if (isset($hotel_in_folder->Property_UID) && $hotel_in_folder->Property_UID != null) {
+						if ($hotel_in_folder->Property_UID == $removedHotel) {
+							unset($hotelFolders[$hotel_in_folder_key]);
+						}
 					}
 				}
 			}
