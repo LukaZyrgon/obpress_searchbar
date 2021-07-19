@@ -202,6 +202,12 @@ jQuery(window).on("elementor/frontend/init", function () {
           cloned.attr("data-id", hotels[j].Property_UID);
           cloned.attr("data-parent-id", UID);
           hotels_div.append(cloned);
+          if (jQuery(".hotels_folder").length > 1) {
+            jQuery(".hotels_hotel").css("background-position-x", "42px");
+          }
+          else {
+            jQuery(".hotels_hotel").css("background-position-x", "32px");
+          }          
         }
       }
 
