@@ -368,6 +368,7 @@ input:focus {
   font-size: 16px;
   float: left;
   width: 50%;
+  padding-top: 5px;
 }
 
 .select-child-title {
@@ -383,7 +384,7 @@ input:focus {
 
 .select-adults-buttons,
 .select-child-buttons {
-  width: 107px;
+  width: 50%;
   float: right;
   display: flex;
   align-items: center;  
