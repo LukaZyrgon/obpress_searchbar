@@ -380,6 +380,7 @@ input:focus {
 .select-child-title-max-age {
   font-size: 11px;
   line-height: 1.36;
+  display: block;
 }
 
 .select-adults-buttons,

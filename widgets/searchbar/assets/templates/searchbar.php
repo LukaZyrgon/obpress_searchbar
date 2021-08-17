@@ -1,4 +1,5 @@
-<form type="POST" action="https://book.omnibees.com/chainresults">
+
+<form type="POST" action="/chain-results">
     <div class="ob-searchbar container<?php if ($settings_searchbar['obpress_searchbar_vertical_view'] == "yes") echo ' ob-searchbar-vertical'; ?><?php if ($settings_searchbar['obpress_searchbar_alignment'] == "left") echo ' ob-mr-auto'; ?><?php if ($settings_searchbar['obpress_searchbar_alignment'] == "center") echo ' ob-m-auto'; ?><?php if ($settings_searchbar['obpress_searchbar_alignment'] == "right") echo ' ob-ml-auto'; ?>" id="index" data-hotel-folders="<?php echo htmlspecialchars(json_encode($hotelFolders), ENT_QUOTES, 'UTF-8'); ?>">
         <div class="ob-searchbar-hotel">
             <p>
@@ -14,9 +15,15 @@
                 );                
             ?>
             </p>
-            <input type="text" value="" placeholder="<?php _e('All Hotels', 'obpress'); ?>" id="hotels" class="<?php if (!empty(get_option('hotel_id'))) {
-                                                                                        echo 'single-hotel';
-                                                                                    } ?>" spellcheck="false" autocomplete="off">
+            <input type="text" value="" placeholder="<?php
+             if (empty(get_option('hotel_id'))) { 
+                    _e('All Hotels', 'obpress');
+                } 
+                ?>" 
+            id="hotels" class="<?php
+            if (!empty(get_option('hotel_id'))) {
+                echo 'single-hotel';
+            } ?>" spellcheck="false" autocomplete="off">
             <input type="hidden" name="c" value="<?php echo get_option('chain_id') ?>">
             <input type="hidden" name="q" id="hotel_code" value="<?php ($_GET['q'] ?? '') ?>">
             <input type="hidden" name="currencyId" value="<?= (isset($_GET['currencyId'])) ? $_GET['currencyId'] : get_option('default_currency_id') ?>">
@@ -85,11 +92,12 @@
                             <div class="select-child-holder">
                                 <div class="select-child-title">
                                     <span><?php _e('Children', 'obpress') ?></span>
-                                    <!-- <span class="select-child-title-max-age">
+                                    <span class="select-child-title-max-age">
                                         0 <?php 
-                                        // _e('to the', 'obpress') ?> 17 <?php _e('Years', 'obpress')
+                                         _e('to the', 'obpress') ; 
+                                         echo " " ; echo $childrenMaxAge ; 
                                          ?>
-                                    </span> -->
+                                    </span> 
                                 </div>
                                 <div class="select-child-buttons">
                                     <button class="select-button select-button-minus select-child-minus" type="button" disabled>
@@ -116,14 +124,14 @@
                                         <span class="age-picker-value">0</span> 
 
                                         <div class="age-picker-options">
-                                            <?php for ($i = 0; $i < 18; $i++) : ?>
+                                            <?php for ($i = 0; $i < $childrenMaxAge + 1; $i++) : ?>
                                                  <div data-age="<?= $i; ?>"> <?= $i; ?> anos de idade</div>
                                             <?php endfor; ?>
 
                                         </div>
 
                                         <select class="select-child-ages-input-clone">
-                                                <?php for ($i = 0; $i < 18; $i++) : ?>
+                                                <?php for ($i = 0; $i < $childrenMaxAge + 1; $i++) : ?>
                                                     <option data-value="<?= $i; ?>" <?php if ($i == 0) { echo "selected";} ?>><?= $i; ?></option>
                                                 <?php endfor; ?>
                                         </select>
