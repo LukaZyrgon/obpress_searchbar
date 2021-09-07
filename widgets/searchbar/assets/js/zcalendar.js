@@ -304,6 +304,17 @@ jQuery(window).on("elementor/frontend/init", function () {
           this.disablePromoDatesAtQ = 0;
         }
 
+        //change form action
+        if (q == "" || q == "0") {
+  
+          $(".searchbar-form").attr("action", "/chain-results");
+
+        } else {
+
+           $(".searchbar-form").attr("action", "/hotel-results");
+
+        }
+
         this.unselect();
         this.fill();
 

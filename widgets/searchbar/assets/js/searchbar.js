@@ -285,19 +285,21 @@ jQuery(window).on("elementor/frontend/init", function () {
 
         var action = jQuery("#hotel_code").closest("form").attr("action");
 
+
+
         if (
           jQuery("#hotel_code").val() == "" ||
           jQuery("#hotel_code").val() == "0"
         ) {
-          action = action.replace(/hotelresults/g, "chainresults");
+          action = action.replace(/hotel-results/g, "chain-results");
           jQuery("#hotel_code").val("");
           jQuery("#occupancy_dropdown .pl-2").show();
           // check if kids allowed
           //   childrenAllowedChain();
         } else {
-          action = action.replace(/chainresults/g, "hotelresults");
+          action = action.replace(/chain-results/g, "hotel-results");
           // check if kids allowed
-          //   childrenAllowed();
+          childrenAllowed();
         }
 
         jQuery("#hotel_code").closest("form").attr("action", action);
@@ -336,6 +338,7 @@ jQuery(window).on("elementor/frontend/init", function () {
         setTimeout(function () {
           jQuery("#hotel_code").trigger("change");
         }, 0);
+
       });
 
       jQuery("#hotels,.as-destination-input").click(function () {
@@ -1103,6 +1106,7 @@ jQuery(window).on("elementor/frontend/init", function () {
       jQuery(".hotels_all, .hotels_hotel, .hotels_folder").on(
         "click",
         function () {
+
           //Remove all rooms if different hotel is selected
           if (jQuery(".select-room").length > 1) {
             jQuery(".select-room").not(":first").remove();
@@ -1701,17 +1705,95 @@ jQuery(window).on("elementor/frontend/init", function () {
         // Check if children are allowed
 
         if (jQuery("#hotel_code").val() != "") {
+          
           childrenAllowed();
         } else {
-          childrenAllowedChain();
+          console.log("promena");
+          
         }
       });
 
       // disable submit if children are choosen on hotels which dont allow them
 
       function childrenAllowed() {
-        //jQuery(".ob-searchbar-submit").prop('disabled', true);
-      }
+
+          console.log("children-allowed");
+
+          var currencyId = $("#lang_curr").attr("data-curr") ;
+          var hotelCode = $("#hotel_code").val();
+          var selectedChildren = Number( $("#ch").val() );
+
+              // get popup information popup
+              $.get( '/children_allowed/' + hotelCode +'/' + currencyId , function( data ) {
+
+                   var response = JSON.parse(data);
+
+                   if (response[3] != "") { 
+
+                    $(".information-popup-content").text("");
+
+                    $(".information-popup-content").append("<img src=' " + response[3] + "  ' > ");
+
+
+                    //INFORMATION POPUP JS
+                    var popupDate = new Date().getTime();
+
+                    if (Number(localStorage.getItem(  chainOrHotelId()  )) < popupDate) {
+                      
+                      setTimeout( function(){
+                        $("#information-popup").modal("show");
+                        setTimeout( function(){
+                          $("#information-popup").modal("hide");
+                         }, 15000);
+                       }, 3000);
+                     } 
+
+                     localStorage.setItem(  chainOrHotelId()  , (popupDate + 30*60*1000));
+
+                }
+
+              });
+
+
+              // get child information
+                if ( selectedChildren > 0 ) { 
+
+                  $.get( '/children_allowed/' + hotelCode +'/' + currencyId , function( data ) {
+
+                    var response = JSON.parse(data);
+
+                    if (response[0] == false && selectedChildren > 0 ) {
+
+                      $("#search .search-button").attr("data-enabled","disabled");
+
+                      $("#btn-search").attr("data-enabled","disabled");
+
+                      $("#children-not-allowed-phone").text(response[1]);
+
+                      $("#children-not-allowed-email").text(response[2]);
+
+                        if (load == "load") {
+
+                          $("#search .search-button , #btn-search").trigger( "click" );
+                        };
+
+                      }  else  {
+
+                         $("#search .search-button").attr("data-enabled","enabled");
+
+                         $("#btn-search").attr("data-enabled","enabled");
+                    }
+
+                  });
+
+                }  else {
+                   $("#search .search-button").attr("data-enabled","enabled");
+                   $("#btn-search").attr("data-enabled","enabled");
+                }
+
+      };
+
+
 
       function childrenAllowedChain() {
         //jQuery(".ob-searchbar-submit").prop('disabled', false);

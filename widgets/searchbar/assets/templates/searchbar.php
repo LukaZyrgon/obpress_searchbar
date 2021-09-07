@@ -1,5 +1,4 @@
-
-<form type="POST" action="/chain-results">
+<form type="POST" action="/chain-results" class="searchbar-form">
     <div class="ob-searchbar container<?php if ($settings_searchbar['obpress_searchbar_vertical_view'] == "yes") echo ' ob-searchbar-vertical'; ?><?php if ($settings_searchbar['obpress_searchbar_alignment'] == "left") echo ' ob-mr-auto'; ?><?php if ($settings_searchbar['obpress_searchbar_alignment'] == "center") echo ' ob-m-auto'; ?><?php if ($settings_searchbar['obpress_searchbar_alignment'] == "right") echo ' ob-ml-auto'; ?>" id="index" data-hotel-folders="<?php echo htmlspecialchars(json_encode($hotelFolders), ENT_QUOTES, 'UTF-8'); ?>">
         <div class="ob-searchbar-hotel">
             <p>
@@ -68,6 +67,7 @@
                         </button>
                     </div>
                 </div>
+
                 <div class="select-room-holder">
                     <div class="select-room" data-room-counter="0">
                         <p class="select-room-title custom-text"><?php _e('Room', 'obpress');?> <span class="select-room-counter">1</span></p>
@@ -122,6 +122,7 @@
 
                                     <div class="age-picker"> 
                                         <span class="age-picker-value">0</span> 
+
 
                                         <div class="age-picker-options">
                                             <?php for ($i = 0; $i < $childrenMaxAge + 1; $i++) : ?>

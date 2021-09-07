@@ -565,6 +565,12 @@ class Searchbar extends \Elementor\Widget_Base
 		            $childrenMaxAge = 17;
 		        }
 
+
+ 
+		} else {
+
+			 	$childrenMaxAge = 17;
+
 		}
 
 
