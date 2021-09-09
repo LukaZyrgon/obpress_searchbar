@@ -5,6 +5,7 @@ jQuery(window).on("elementor/frontend/init", function () {
   elementorFrontend.hooks.addAction(
     "frontend/element_ready/SpecialOffer.default",
     function ($scope, $) {
+
       /*
        *  zyrgon-calendar.js alpha | http://zyrgon.com | (c) 2020
        */

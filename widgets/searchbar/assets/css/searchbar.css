@@ -136,6 +136,10 @@ button:disabled {
     cursor: pointer;
 }
 
+#index {
+  max-width: 100%;
+}
+
 #index input::-webkit-input-placeholder {
   font-family: "Montserrat", sans-serif;
 }
