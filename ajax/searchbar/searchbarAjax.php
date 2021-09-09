@@ -25,3 +25,22 @@ function get_max_rooms_callback() {
     die();
 }
 
+/* get children avail */
+
+add_action('wp_ajax_get_children_availability', 'getChildrenAvailability');
+add_action('wp_ajax_nopriv_get_children_availability', 'getChildrenAvailability');
+
+function getChildrenAvailability() {
+
+    $property = $_GET['q'];  
+
+    $currency = $_GET['currencyId'];
+
+    $style = BeApi::childrenAllowed($property, $currency);
+
+    echo json_encode($style); 
+
+    die();
+
+
+}

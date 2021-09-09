@@ -295,7 +295,7 @@ jQuery(window).on("elementor/frontend/init", function () {
           jQuery("#hotel_code").val("");
           jQuery("#occupancy_dropdown .pl-2").show();
           // check if kids allowed
-          //   childrenAllowedChain();
+          childrenAllowedChain();
         } else {
           action = action.replace(/chain-results/g, "hotel-results");
           // check if kids allowed
@@ -1542,6 +1542,7 @@ jQuery(window).on("elementor/frontend/init", function () {
 
       //Apply Button
       jQuery(document).on("click", ".select-occupancy-apply", function () {
+
         var childAgeHolder = jQuery(".select-child-ages-holder");
 
         var adultsInput = jQuery("#ad");
@@ -1707,97 +1708,89 @@ jQuery(window).on("elementor/frontend/init", function () {
         if (jQuery("#hotel_code").val() != "") {
           
           childrenAllowed();
+
         } else {
-          console.log("promena");
+
+          childrenAllowedChain();
           
         }
+
       });
+
+
+
 
       // disable submit if children are choosen on hotels which dont allow them
 
-      function childrenAllowed() {
+      function childrenAllowed(load) {
 
-          console.log("children-allowed");
-
-          var currencyId = $("#lang_curr").attr("data-curr") ;
+          var currencyId = $(".obpress-currencies-select").find(":selected").attr("data-curr") ;
           var hotelCode = $("#hotel_code").val();
           var selectedChildren = Number( $("#ch").val() );
 
-              // get popup information popup
-              $.get( '/children_allowed/' + hotelCode +'/' + currencyId , function( data ) {
-
-                   var response = JSON.parse(data);
-
-                   if (response[3] != "") { 
-
-                    $(".information-popup-content").text("");
-
-                    $(".information-popup-content").append("<img src=' " + response[3] + "  ' > ");
 
 
-                    //INFORMATION POPUP JS
-                    var popupDate = new Date().getTime();
+            // prepare ajax request for children availability and max age
 
-                    if (Number(localStorage.getItem(  chainOrHotelId()  )) < popupDate) {
-                      
-                      setTimeout( function(){
-                        $("#information-popup").modal("show");
-                        setTimeout( function(){
-                          $("#information-popup").modal("hide");
-                         }, 15000);
-                       }, 3000);
-                     } 
+              jQuery.get(searchbarAjax.ajaxurl + "?q=" +  hotelCode + '&currencyId=' + currencyId + "&action=get_children_availability", function(response){
 
-                     localStorage.setItem(  chainOrHotelId()  , (popupDate + 30*60*1000));
+                      var allowed =  JSON.parse(response) ;
 
-                }
+                      console.log( allowed[1] );
+
+                      if ( selectedChildren > 0 ) { 
+
+                          if ( allowed[0] == false  ) {
+
+                            $(".ob-searchbar-submit").attr('disabled', 'disabled');
+
+                            $("#children-not-allowed-phone").text(response[1]);
+
+                            $("#children-not-allowed-email").text(response[2]);
+
+                            if (load == "load") {
+
+                                $(".ob-searchbar-submit").trigger( "click" );
+                            };
+
+                          }  else  {
+
+                             $(".ob-searchbar-submit").removeAttr("disabled");
+
+                        }  
+
+                      } else {
+
+                         $(".ob-searchbar-submit").removeAttr("disabled");
+
+                      }
 
               });
+           
 
 
-              // get child information
-                if ( selectedChildren > 0 ) { 
+        // end of request
 
-                  $.get( '/children_allowed/' + hotelCode +'/' + currencyId , function( data ) {
-
-                    var response = JSON.parse(data);
-
-                    if (response[0] == false && selectedChildren > 0 ) {
-
-                      $("#search .search-button").attr("data-enabled","disabled");
-
-                      $("#btn-search").attr("data-enabled","disabled");
-
-                      $("#children-not-allowed-phone").text(response[1]);
-
-                      $("#children-not-allowed-email").text(response[2]);
-
-                        if (load == "load") {
-
-                          $("#search .search-button , #btn-search").trigger( "click" );
-                        };
-
-                      }  else  {
-
-                         $("#search .search-button").attr("data-enabled","enabled");
-
-                         $("#btn-search").attr("data-enabled","enabled");
-                    }
-
-                  });
-
-                }  else {
-                   $("#search .search-button").attr("data-enabled","enabled");
-                   $("#btn-search").attr("data-enabled","enabled");
-                }
 
       };
 
 
-
       function childrenAllowedChain() {
-        //jQuery(".ob-searchbar-submit").prop('disabled', false);
-      }
+
+        console.log("chain");
+
+        $(".ob-searchbar-submit").removeAttr("disabled");
+        
+      };
+
+
+
+
+
+
+
+
+
     }
   );
 });

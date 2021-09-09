@@ -3392,13 +3392,13 @@ jQuery(window).on("elementor/frontend/init", function () {
 
             // disable submit if children are choosen on hotels which dont allow them
 
-            function childrenAllowed() {
-              //jQuery(".ob-searchbar-submit").prop('disabled', true);
-            }
+            // function childrenAllowed() {
+            //   //jQuery(".ob-searchbar-submit").prop('disabled', true);
+            // }
 
-            function childrenAllowedChain() {
-              //jQuery(".ob-searchbar-submit").prop('disabled', false);
-            }
+            // function childrenAllowedChain() {
+            //   //jQuery(".ob-searchbar-submit").prop('disabled', false);
+            // }
           }
         );
       });

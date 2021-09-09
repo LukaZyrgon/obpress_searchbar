@@ -79,3 +79,4 @@ function getChainAvailAndPrice($chain,$currency,$date_from,$date_to){
 
     die();
 }
+
