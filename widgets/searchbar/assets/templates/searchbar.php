@@ -95,8 +95,9 @@
                                     <span class="select-child-title-max-age">
                                         0 <?php 
                                          _e('to the', 'obpress') ; 
-                                         echo " " ; echo $childrenMaxAge ; 
+                                         echo " " ; 
                                          ?>
+                                         <span class='child-max-age'> <?php echo $childrenMaxAge ; ?> </span>
                                     </span> 
                                 </div>
                                 <div class="select-child-buttons">

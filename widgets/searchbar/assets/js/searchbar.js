@@ -1729,6 +1729,8 @@ jQuery(window).on("elementor/frontend/init", function () {
           var selectedChildren = Number( $("#ch").val() );
 
 
+           $(".age-picker-options div").hide();
+
 
             // prepare ajax request for children availability and max age
 
@@ -1736,7 +1738,24 @@ jQuery(window).on("elementor/frontend/init", function () {
 
                       var allowed =  JSON.parse(response) ;
 
-                      console.log( allowed[1] );
+                      var max_age = allowed[1]; 
+
+                      $(".child-max-age").text( max_age );
+
+
+                      $(".age-picker-options").each(function() {
+
+                           for ( i = 0 ; i <= max_age ; i++) {
+
+                                $(this).find("div:eq("+i+")").show();
+
+                            }
+
+                      });
+
+                     
+
+                      
 
                       if ( selectedChildren > 0 ) { 
 
@@ -1777,7 +1796,9 @@ jQuery(window).on("elementor/frontend/init", function () {
 
       function childrenAllowedChain() {
 
-        console.log("chain");
+        $(".child-max-age").text("17");
+
+        $(".age-picker-options div").show();
 
         $(".ob-searchbar-submit").removeAttr("disabled");
         
