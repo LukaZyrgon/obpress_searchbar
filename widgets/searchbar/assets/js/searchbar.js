@@ -6,7 +6,7 @@ jQuery(window).on("elementor/frontend/init", function () {
     "frontend/element_ready/Searchbar.default",
     function ($scope, $) {
       /* getting url params */
-
+      console.log('asd');
       hotelFolders = JSON.parse(
         jQuery(".ob-searchbar").attr("data-hotel-folders")
       );
