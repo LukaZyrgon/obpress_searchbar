@@ -61,7 +61,7 @@ msgstr[1] "Destination or Hotel"
 
 #. Label above Promo Code main input field
 msgid "I HAVE A CODE"
-msgstr "I have a code"
+msgstr "I have a code..."
 
 #. Remove room string in occupancy dropdown input field
 msgid "Incorrect Age"
@@ -89,7 +89,7 @@ msgstr "Offers for you"
 
 #. Label above Promo Code input field
 msgid "PROMO CODE"
-msgstr "Promo code"
+msgstr "Promo code..."
 
 #. Remove room string in occupancy dropdown input field
 msgid "Remove room"
