@@ -21,7 +21,7 @@ msgstr ""
 msgid "Hotel"
 msgid_plural "Destination or Hotel"
 msgstr[0] "HOTEL"
-msgstr[1] "DESTINO OU HOTEL"
+msgstr[1] "Destinos e Hotéis"
 
 #. Placeholder for Hotels input field
 msgid "All Hotels"
@@ -29,11 +29,11 @@ msgstr "Todos os Hotéis"
 
 #. Label Above Calendar input
 msgid "DATES OF STAY"
-msgstr "DATAS DA ESTADIA"
+msgstr "Datas de estadia"
 
 #. Label above Guests input field
 msgid "ROOMS AND GUESTS"
-msgstr "QUARTOS E HÓSPEDES"
+msgstr "Hóspedes e quartos"
 
 #. Room string in occupancy dropdown input field
 msgid "Room"
@@ -85,7 +85,7 @@ msgstr "Aplicar"
 
 #. Label above Promo Code main input field
 msgid "I HAVE A CODE"
-msgstr "TENHO UM CÓDIGO"
+msgstr "Tenho cupom"
 
 #. Label above Promo Code input field
 msgid "PROMO CODE"

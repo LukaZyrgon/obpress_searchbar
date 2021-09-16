@@ -6,7 +6,7 @@ jQuery(window).on("elementor/frontend/init", function () {
     "frontend/element_ready/Searchbar.default",
     function ($scope, $) {
       /* getting url params */
-
+      console.log('asd');
       hotelFolders = JSON.parse(
         jQuery(".ob-searchbar").attr("data-hotel-folders")
       );
@@ -1094,7 +1094,7 @@ jQuery(window).on("elementor/frontend/init", function () {
           occupancyDropdown.slideUp(200);
           jQuery(this).css(
             "background-image",
-            "url(/icons/icons_GreyDark/iconGreyDark_ArrowDown.svg)"
+            // "url(/icons/icons_GreyDark/iconGreyDark_ArrowDown.svg)"
           );
           jQuery(".ob-searchbar-guests").removeClass("opened");
         }
@@ -1141,7 +1141,7 @@ jQuery(window).on("elementor/frontend/init", function () {
             jQuery.post(searchbarAjax.ajaxurl, data, function (response) {
               maxRooms = response;
               if (maxRooms > 1) {
-                jQuery(".add-room-holder").css("display", "inline-block");
+                jQuery(".add-room-holder").css("display", "flex");
                 jQuery(".select-room-plus").prop("disabled", false);
               }
             });

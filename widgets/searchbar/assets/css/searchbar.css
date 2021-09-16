@@ -3,11 +3,10 @@
   src: url(../fonts/Montserrat-Regular.ttf);
 }
 
-
 .ob-searchbar {
   background-color: #fff;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   font-family: Montserrat;
   height: 120px;
   padding: 0px 30px;
@@ -47,7 +46,6 @@
   font-size: 16px;
   margin-bottom: 10px;
 }
-
 
 .ob-searchbar button:focus {
    outline:none;
@@ -90,14 +88,23 @@ button:disabled {
 .ob-searchbar-promo {
   display: flex;
   flex-direction: column;
-  min-width: 250px;
+  min-width: 280px;
   position: relative;
   padding: 20px 10px;
+  height: 120px;
+  justify-content: center;
+}
+
+.ob-searchbar-hotel,
+.ob-searchbar-calendar,
+.ob-searchbar-guests {
+  margin-right: 8px;
 }
 
 .ob-searchbar-promo {
-  min-width: 130px;
-  max-width: 130px;
+  min-width: 160px;
+  max-width: 160px;
+  margin-right: 18px;
 }
 
 .ob-searchbar-hotel > p,
@@ -128,12 +135,16 @@ button:disabled {
   font-family: 'Montserrat', sans-serif;
 }
 
-.ob-searchbar-hotel input , .ob-searchbar-calendar input , .ob-searchbar-guests input {
+.ob-searchbar-hotel input , .ob-searchbar-calendar input , .ob-searchbar-guests input, .ob-searchbar-promo input {
     background-image: url(../icons/down.png);
     background-repeat: no-repeat;
     background-position-x: right;
     background-position-y: center;
     cursor: pointer;
+}
+
+.select-room-title {
+  margin: 0px;
 }
 
 #index {
@@ -153,9 +164,9 @@ button:disabled {
 }
 
 
-.ob-searchbar-button {
-  padding: 30px 10px;
-  min-width: 167px;
+#index .ob-searchbar-button {
+  padding: 0px;
+  min-width: 148px;
 }
 
 .ob-searchbar-submit {
@@ -177,14 +188,16 @@ button:disabled {
   width:100%;
   font-size: 14px;
   margin-top: 30px;
-  height: 30px;
+  height: 25px;
 }
 
 
 
 #promo_code_dropdown input {
   background: #F5F5F5;
-  max-width: 100px;
+  max-width: 114.5px;
+  font-size: 12px;  
+  font-weight: 300;
 }
 
 input:focus {
@@ -196,8 +209,8 @@ input:focus {
 }
 
 .hotels_dropdown {
-  width: 304px;
-  max-height: 400px;
+  width: 280px;
+  max-height: 336px;
   z-index: 12;
   overflow: overlay;
   position: absolute;
@@ -206,7 +219,7 @@ input:focus {
   overflow: auto;
   font-size: 14px;
   display: none;
-  top: 88px;
+  top: 100px;
   left: 0px;
 }
 
@@ -287,28 +300,34 @@ input:focus {
 
 #promo_code_dropdown {
   position: absolute;
-  top: 88px;
+  top: 100px;
   background: #F5F5F5;
-  padding: 15px;
+  padding: 0px 12px 16px 12px;
   left: 0px;
   display: none;
   z-index: 12;
-  width: 130px;
+  width: 160px;
+}
+
+#promo_code_dropdown p {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 0px;
 }
 
 #occupancy_dropdown {
   display: none;
   z-index: 12;
-  padding: 20px;
+  padding: 31px 20px 20px 20px;
   /*overflow: visible;*/
   /*max-height: 530px;*/
-  width: 250px;
+  width: 280px;
  /* overflow-x: hidden;*/
   scrollbar-width: thin;
   background: #F5F5F5;
   color: #263237;
   position: absolute;
-  top: 88px;
+  top: 100px;
   left: 0px;
 }
 
@@ -367,7 +386,7 @@ input:focus {
 }
 
 .select-adults-holder {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   display: inline-block;
   width: 100%;
 }
@@ -397,6 +416,7 @@ input:focus {
   width: 50%;
   float: right;
   display: flex;
+  justify-content: flex-end;
   align-items: center;  
 }
 
@@ -427,7 +447,7 @@ input:focus {
 }
 
 .select-child-ages-holder {
-  margin-top: 20px;
+  /*margin-top: 20px;*/
 }
 
 .select-child-ages-title {
@@ -443,6 +463,7 @@ input:focus {
 
 .select-child-ages-clone {
   display: none;
+  margin-top: 20px;
 }
 
 
@@ -552,7 +573,7 @@ select:focus {
   background-color: #000;
   height: 30px;
   padding: 0px;
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
   color: #fff;
   border: 0px;
 }
@@ -575,7 +596,7 @@ select:focus {
 }
 
 .add-room-holder {
-  margin-bottom: 10px;
+  margin-bottom: 17px;
   width: 100%;
 }
 
@@ -587,6 +608,7 @@ select:focus {
   width: 107px;
   float: right;
   display: flex;
+  justify-content: flex-end;
   align-items: center;  
 }
 
