@@ -172,21 +172,21 @@
         <?php if($settings_searchbar['obpress_searchbar_promo_show'] === 'yes'): ?>
             <div class="ob-searchbar-promo">
                 <p><?php _e('I HAVE A CODE', 'obpress'); ?></p>
-                <input type="text" id="promo_code" value="" readonly>
+                <input type="text" id="promo_code" value="" placeholder="Escolha o tipo" readonly>
                 <div id="promo_code_dropdown" class="position-absolute custom-bg custom-text">
                     <div class="mb-3 mt-2">
                         <p class="input-title"><?php _e('GROUP CODE', 'obpress') ?></p>
-                        <input type="text" id="group_code" name="group_code">
+                        <input type="text" id="group_code" name="group_code" placeholder="Digite seu código">
                     </div>
 
                     <div class="mb-3">
                         <p class="input-title"><?php _e('PROMO CODE', 'obpress'); ?></p>
-                        <input type="text" id="Code" name="Code">
+                        <input type="text" id="Code" name="Code" placeholder="Digite seu código">
                     </div>
 
                     <div class="mb-3">
                         <p class="input-title"><?php _e('LOYALTY CODE', 'obpress') ?></p>
-                        <input type="text" id="loyalty_code" name="loyalty_code">
+                        <input type="text" id="loyalty_code" name="loyalty_code" placeholder="Digite seu código">
                     </div>
 
                     <div class="text-right">

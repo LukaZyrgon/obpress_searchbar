@@ -61,7 +61,7 @@ msgstr[1] "DESTINO OU HOTEL"
 
 #. Label above Promo Code main input field
 msgid "I HAVE A CODE"
-msgstr "TENHO UM CÓDIGO"
+msgstr "Tenho cupom"
 
 #. Remove room string in occupancy dropdown input field
 msgid "Incorrect Age"
