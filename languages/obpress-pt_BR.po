@@ -33,7 +33,7 @@ msgstr "Datas de estadia"
 
 #. Label above Guests input field
 msgid "ROOMS AND GUESTS"
-msgstr "Hóspedes e quartos"
+msgstr "Quartos e hóspedes"
 
 #. Room string in occupancy dropdown input field
 msgid "Room"
@@ -69,7 +69,7 @@ msgstr "Anos"
 
 #. Number of rooms string in occupancy dropdown input field
 msgid "NUMBER OF ROOMS"
-msgstr "Nº DE QUARTOS"
+msgstr "N° de Quartos"
 
 #. Remove room string in occupancy dropdown input field
 msgid "Remove room"
@@ -89,15 +89,15 @@ msgstr "Tenho cupom"
 
 #. Label above Promo Code input field
 msgid "PROMO CODE"
-msgstr "CÓDIGO PROMOCIONAL"
+msgstr "Código Promocional"
 
 #. Label above Group Code input field
 msgid "GROUP CODE"
-msgstr "CÓDIGO DE GRUPO"
+msgstr "Código De Grupo"
 
 #. Label above Loyalty Code input field
 msgid "LOYALTY CODE"
-msgstr "CARTÃO DE FIDELIDADE"
+msgstr "Cartão de fidelização"
 
 #. Search button
 msgid "SEARCH"

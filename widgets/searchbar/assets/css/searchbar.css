@@ -187,8 +187,9 @@ button:disabled {
   border: 0px;
   width:100%;
   font-size: 14px;
-  margin-top: 30px;
-  height: 25px;
+  margin-top: 25px;
+  height: 30px;
+  font-weight: 500;
 }
 
 
@@ -216,11 +217,35 @@ input:focus {
   position: absolute;
   color: #212529;
   background: #F5F5F5;
-  overflow: auto;
   font-size: 14px;
   display: none;
   top: 100px;
   left: 0px;
+}
+
+.hotels_dropdown::-webkit-scrollbar {
+    width: 12px;
+}
+
+.hotels_dropdown::-webkit-scrollbar {
+    width: 12px;
+}
+
+.hotels_dropdown::-webkit-scrollbar-thumb {
+    border-left: 10px solid #000000;
+}
+
+.hotels_dropdown::-webkit-scrollbar-track {
+    border-left: 10px solid #E8E8E8;
+    margin-top: 19px;
+    margin-bottom: 25px;
+}
+
+/* overflow need to be auto for mozila */
+@-moz-document url-prefix() {
+  .hotels_dropdown {
+    overflow: auto;
+  }
 }
 
 .hotels_all,
@@ -277,18 +302,18 @@ input:focus {
 }
 
 .hotels_dropdown::-webkit-scrollbar {
-  width: 6px;
+  width: 20.5px;
   background: transparent;
 }
 .hotels_dropdown::-webkit-scrollbar-track {
   background: transparent;
 }
-.hotels_dropdown::-webkit-scrollbar-thumb {
+/*.hotels_dropdown::-webkit-scrollbar-thumb {
   background: #dde1e3;
 }
 .hotels_dropdown::-webkit-scrollbar-thumb:hover {
   background: #9c9fa1;
-}
+}*/
 
 .d-none {
   display: none;
@@ -377,6 +402,7 @@ input:focus {
 .select-room {
   display: inline-block;
   width: 100%;
+  margin-bottom: 25px;
 }
 
 .select-adults-holder,
@@ -456,7 +482,7 @@ input:focus {
 
 .select-child-ages {
   padding: 0;
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
   width: 100%;
 }
 
@@ -568,7 +594,7 @@ select:focus {
 
 .select-occupancy-apply {
   width: 100%;
-  margin-top: 20px !important;
+  /*margin-top: 20px !important;*/
   font-size: 14px;
   background-color: #000;
   height: 30px;
@@ -598,6 +624,7 @@ select:focus {
 .add-room-holder {
   margin-bottom: 17px;
   width: 100%;
+  justify-content: space-between;
 }
 
 .add-room-title {
