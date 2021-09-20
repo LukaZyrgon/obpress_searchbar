@@ -44,7 +44,8 @@
 
 .ob-searchbar p {
   font-size: 16px;
-  margin-bottom: 10px;
+  margin-bottom: 11px;
+  margin-top: 0px;
 }
 
 .ob-searchbar button:focus {
@@ -90,7 +91,7 @@ button:disabled {
   flex-direction: column;
   min-width: 280px;
   position: relative;
-  padding: 20px 10px;
+  padding: 30px 13px 27.5px 17px!important;
   height: 120px;
   justify-content: center;
 }
@@ -343,7 +344,7 @@ input:focus {
 #occupancy_dropdown {
   display: none;
   z-index: 12;
-  padding: 31px 20px 20px 20px;
+  padding: 31px 30px 23px 30px;
   /*overflow: visible;*/
   /*max-height: 530px;*/
   width: 280px;
