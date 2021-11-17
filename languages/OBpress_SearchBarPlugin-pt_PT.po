@@ -122,3 +122,7 @@ msgstr "aos"
 #. Years string in occupancy dropdown input field
 msgid "Years"
 msgstr "Anos"
+
+#. Strings for the Calendar
+msgid "Restricted Days"
+msgstr "Dias com restrições"

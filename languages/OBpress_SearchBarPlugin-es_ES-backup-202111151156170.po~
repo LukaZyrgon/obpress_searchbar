@@ -1,127 +1,130 @@
 # Copyright (C) 2020 Zyrgon.com
 # This file is distributed under the same license as the Obpress plugin.
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Obpress 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/obpress\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: \n"
+"Language-Team: Spanish (Spain)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-05-17 08:53+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2021-05-17 12:32+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: obpress\n"
-"\n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Loco-Version: 2.5.2; wp-5.7.1"
 
 #. Label above Hotels field
 msgid "Hotel"
 msgid_plural "Destination or Hotel"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "HOTEL"
+msgstr[1] "Destino u Hotel"
 
 #. Placeholder for Hotels input field
 msgid "All Hotels"
-msgstr ""
+msgstr "Todos los hoteles"
 
-#.Label Above Calendar input
+#. Label Above Calendar input
 msgid "DATES OF STAY"
-msgstr ""
+msgstr "Fechas de estancia"
 
 #. Label above Guests input field
 msgid "ROOMS AND GUESTS"
-msgstr ""
+msgstr "Habutaciones y huéspedes"
 
 #. Room string in occupancy dropdown input field
 msgid "Room"
-msgstr ""
+msgstr "Habitación"
 
 #. Rooms string in occupancy dropdown input field
 msgid "Rooms"
-msgstr ""
+msgstr "Habitaciones"
 
 #. Guest string in occupancy dropdown input field
 msgid "Guest"
 msgstr ""
+"\n"
+"Huésped"
 
 #. Guests string in occupancy dropdown input field
 msgid "Guests"
-msgstr ""
+msgstr "Huéspedes"
 
 #. Adults string in occupancy dropdown input field
 msgid "Adults"
-msgstr ""
+msgstr "Adultos"
 
 #. Children string in occupancy dropdown input field
 msgid "Children"
-msgstr ""
+msgstr "Niños"
 
 #. 'to the' string in occupancy dropdown input field
 msgid "to the"
-msgstr ""
+msgstr "al"
 
 #. Years string in occupancy dropdown input field
 msgid "Years"
-msgstr "
+msgstr "Año"
 
 #. Number of rooms string in occupancy dropdown input field
 msgid "NUMBER OF ROOMS"
-msgstr ""
+msgstr "N° de Habitaciones"
 
 #. Remove room string in occupancy dropdown input field
 msgid "Remove room"
-msgstr ""
+msgstr "Quitar habitación"
 
 #. Remove room string in occupancy dropdown input field
 msgid "Incorrect Age"
-msgstr ""
+msgstr "Edad incorrecta"
 
 #. Remove room string in occupancy dropdown input field
 msgid "Apply"
-msgstr ""
+msgstr "Aplicar"
 
 #. Label above Promo Code main input field
 msgid "I HAVE A CODE"
-msgstr ""
-
+msgstr "Tengo un código"
 
 #. Label above Promo Code input field
 msgid "PROMO CODE"
-msgstr ""
+msgstr "Código Promocional"
 
 #. Label above Group Code input field
 msgid "GROUP CODE"
-msgstr ""
+msgstr "Código De Grupo"
 
 #. Label above Loyalty Code input field
 msgid "LOYALTY CODE"
-msgstr ""
+msgstr "Tarjeta de fidelidad"
 
 #. Search button
 msgid "SEARCH"
-msgstr ""
+msgstr "BUSCAR"
 
 #. Strings for the Calendar
 msgid "Offers for you"
-msgstr ""
+msgstr "Ofertas espaciales para ti"
 
 #. Strings for the Calendar
 msgid "Special Offer"
-msgstr ""
+msgstr "Oferta especial"
 
 #. Strings for the Calendar
 msgid "*Price for 1 adult / 1 night"
-msgstr ""
+msgstr "*Precio para 1 Adulto / 1 noche"
 
 #. Strings for the Calendar
 msgid "Night"
-msgstr ""
+msgstr "Noche"
 
 #. Strings for the Calendar
 msgid "Nights"
-msgstr ""
+msgstr "Noches"
 
+#. Strings for the Calendar
+msgid "Restricted Days"
+msgstr "Days with restrictions"

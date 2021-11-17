@@ -14,6 +14,7 @@ function enqueue_ajax_scripts(){
     wp_localize_script('zcalendar-script', 'zcalendarAjax', array(
         'ajaxurl' => admin_url('admin-ajax.php')
     ));
+
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_ajax_scripts');
