@@ -422,6 +422,9 @@
 	position: relative;
 }
 
+.zc-date {
+	position: relative;
+}
 
 
 .zcalendar [data-title]:after {
@@ -533,6 +536,10 @@
 
 #as-cal .zc-btn,.as-cal .zc-btn{
 	top: 20px;
+}
+
+.ob-zcalendar-bottom , .ob-zcalendar-top {
+	display: none;
 }
 
 /* between the bootstrap 120 and tablet mode */

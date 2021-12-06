@@ -1894,10 +1894,13 @@ jQuery(window).on("elementor/frontend/init", function () {
         requestForNewOccupancy = true;
         widget.newRequest = true;
         $(".zc-date-price").hide();
+        $("[data-unix] .loader").show();
+        $("[data-disabled] .loader").hide();
         widget.fill();
 
         // change text in bottom label
-        var newAdultsNumber = $("#ad").val() ;
+        var newAdultsNumber = Math.min( ...$("#ad").val().split(",")  ) ;
+
         $(".number-of-adults").text( " " + newAdultsNumber);
         if ( newAdultsNumber == 1 ) {
           $(".adult-plural").text( " " + $(".zcalendar").data("adult")  );
