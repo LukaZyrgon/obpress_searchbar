@@ -148,6 +148,10 @@ button:disabled {
     cursor: pointer;
 }
 
+.package-form #hotels {
+  background-image: none;
+}
+
 .ob-searchbar-promo input {
   background-image: url(../icons/down.png);
   background-repeat: no-repeat;

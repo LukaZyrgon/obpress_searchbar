@@ -1074,9 +1074,11 @@ jQuery(window).on("elementor/frontend/init", function () {
       ) {
         // $('.select-room-add').css('display', 'none');
         jQuery(".add-room-holder").css("display", "none");
+
       } else {
         // $('.select-room-add').css('display', 'block');
         jQuery(".add-room-holder").css("display", "inline-block");
+
       }
 
       jQuery("#guests").on("click", function () {
@@ -1126,6 +1128,7 @@ jQuery(window).on("elementor/frontend/init", function () {
           ) {
             // $('.select-room-add').css('display', 'none');
             jQuery(".add-room-holder").css("display", "none");
+
           } else {
             //TODO!!! Figure out how to get max rooms
             var hotel_id = parseInt($("#hotel_code").val());

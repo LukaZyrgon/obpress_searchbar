@@ -8,9 +8,9 @@
 .zcalendar{
 	margin-left:auto;
 	margin-right:auto;	
-	background: #F5F5F5;
-	color: #212529;
-	position: absolute;
+	background: #263237;
+	color:#fff;
+	position: relative;
     z-index: 2;
     width: 972px;
     font-family: Montserrat;
@@ -26,7 +26,7 @@
 	line-height: 30px;
 	vertical-align: middle;
 	font-weight: bold;
-	font-size:18px;	
+	font-size:16px;	
 }
 
 .zc-month-name{
@@ -56,14 +56,14 @@
 }
 
 .zc-btn-next {
-	background-image: url(../../icons/chevron-right.svg);
+	background-image: url(../icons/chevron-right.svg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
 }
 
 .zc-btn-prev {
-	background-image: url(../../icons/chevron-left.svg);
+	background-image: url(../icons/chevron-left.svg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
@@ -93,8 +93,8 @@
 
 .zc-months{
 	width:auto;
-	margin-left: 50px;
-	margin-right: 50px;
+	margin-left: 40px;
+	margin-right: 40px;
 }
 
 .zc-months:after{
@@ -143,43 +143,6 @@
 	pointer-events: none;
 }
 
-.zc-minimum-stay {
-    width: 12px;
-    position: absolute;
-    top: 5px;
-    height: 12px;
-    right: 6px;
-    font-size: 9px;
-    border-radius: 0px 2px;
-    color: #fff;
-    background-color: #BEAD8E;
-}
-
-.loader {
-	display: none;
-	width: 26px;
-    height: 6px;
-    background-color: #E6E6E6;
-    border-radius: 20px;
-    position: relative;
-    margin: 11px auto;
-}
-
-.loader-ball {
-	width: 23px;
-    height: 6px;
-    background-color: #f5f5f5;
-    border-radius: 20px;
-    position:absolute;
-    animation: loader 0.7s infinite;
-    animation-direction: alternate;
-}
-
-@keyframes loader {
-  from {left: 0px; width: 23px}
-  to {left: 24px; width: 6px}
-}
-
 .zc-dates,.zc-weekdays {
 	user-select: none;
 	font-size:0px;
@@ -201,7 +164,7 @@
 	border-width: 0px;
 	border-color: transparent;
 	border-style: solid;
-	border-bottom:1px solid gray;
+	border-bottom:1px solid rgba(174, 174, 174, 0.21);
 
 	vertical-align:top;
 }
@@ -244,7 +207,7 @@
 }
 
 .zc-date-price{
-	font-size: 14px;
+	font-size: 12px;
 }
 
 
@@ -404,63 +367,33 @@
 
 
 
-
 .zcalendar [data-title]:after {
-	content: attr(data-title) '\a' attr(data-minimum-stay-message) '\a' attr(data-maximum-stay-message);
+	content: attr(data-title);
 	position: absolute;
 	z-index: 210;
+
 	color: #3c3c3c;
 	background: #eee;
+
     width:150px;
+
     line-height: 1rem;
+
 	pointer-events: none;
+    
     opacity: 0;
     visibility: hidden;
+
 	border-radius:5px;
+
     text-align:center;
     font-size:smaller;
-    padding:10px 10px;
+    white-space: nowrap;
+
+    padding:10px 5px;
     left: calc(50% - 75px);
     bottom: 63px;
-}
-
-
-
-
-.zcalendar [data-two-messages-title][data-title]:after {
-	content: attr(data-title) '\a' attr(data-minimum-stay-message) '\a' attr(data-maximum-stay-message);
-	position: absolute;
-	z-index: 210;
-	color: #3c3c3c;
-	background: #eee;
-    width:150px;
-    line-height: 1rem;
-	pointer-events: none;
-    opacity: 0;
-    visibility: hidden;
-	border-radius:5px;
-    text-align:center;
-    font-size:smaller;
-    text-align: left;
-    padding:10px 10px;
-    left: calc(50% - 75px);
-    bottom: 63px;
-	min-height: 52px;
-}
-
-
-.restrictions-gray-icon {
-    display: inline-block;
-    width: 13px;
-    height: 12px;
-    background-color: #BEAD8E;
-    color: #fff;
-    font-size: 9px;
-    text-align: center;
-    vertical-align: middle;
-    border-radius: 2px;
-    margin-right: 7px;
-    margin-left: 30px;
+   
 }
 
 .zcalendar [data-title]:before{
@@ -536,12 +469,6 @@
 	top: 20px;
 }
 
-
-.ob-zcalendar-top, .ob-zcalendar-bottom {
-	display: none;
-}
-
-
 /* between the bootstrap 120 and tablet mode */
 @media(max-width: 1199px)  and (min-width: 991px){
 	.zcalendar{
@@ -569,8 +496,6 @@
 }
 /*Screen width mobile mode */
 @media(max-width: 992px) {
-
-
 	[data-promo="true"] .zc-date-box:after{
 		right:4px;
 	}
@@ -583,32 +508,17 @@
 	    width:100%;
 	    z-index: 100;
 	    margin-top:0px;
-	    height: 100vh;
+	    height: auto;
+	    /*height: 510px;*/
 	}
 
-	.zc-info-bar {
-		display: none;
-	}
-
-	.zc-calendar-mobile-apply {
-		height: 110px;
-		position: fixed;
-		bottom : 0px;
-		padding: 20px 30px;
-	}
-
-	.zcalendar .zc-month {
+	.zc-month{
 		width:320px;
 		float:none;		
 		margin-left:auto;
 		margin-right:auto;
-		margin-top: 0px;
-		margin-bottom: 20px;
-		display: block;
-	}
+		margin-top: 50px;
 
-	.zcalendar .zc-month:nth-child(2), .zcalendar .zc-month:nth-child(3), .zcalendar .zc-month:nth-child(4) {
-		display: block;
 	}
 
 	.zc-weekday  {
@@ -616,8 +526,7 @@
 	}
 
 	.zc-btn-prev , .zc-btn-next {
-		top: 49px;
-		display: none;
+		top:49px;
 	}
 
 	.zc-btn-prev  {
@@ -631,15 +540,16 @@
 
 	.zc-month-info  {
 		margin-bottom: 40px;
-		text-align: left;
-		font-size: 14px;
 	}
 
-	.zc-weekdays {
-		display: none;
+
+
+	.zcalendar .zc-month:nth-child(2){
+		display:none;
+
 	}
 
-	.zc-date[data-start] .zc-date-inner, .zc-date[data-end] .zc-date-inner {
+	.zc-date[data-start] .zc-date-inner, .zc-date[data-end] .zc-date-inner{
 		width:41px;
 	}
 
@@ -648,156 +558,33 @@
 		margin-left:auto;
 		margin-right:auto;
 	}
-
 	.zc-date[data-start] .zc-date-inner:after{
+		
 		width:15px;
 		right:-11px;
 	}	
-
 	.zc-date[data-end] .zc-date-inner:after{
 		width:15px;
 		left:-10px;
 	}
-
 	.zc-date[data-unix]:not([data-start]):not([data-end]):hover .zc-date-inner,.zc-date[data-first] .zc-date-inner{
+		
 		width:  41px;
+		
 	}
-
-	.zc-date-price {
-	    font-size: 11px;
-	}
-
-	.zc-info-bar-promo {
+	.zc-info-bar-promo{
 		margin-left:5px;
 		margin-bottom:5px;
 	}
 
-	.zc-close {
-		top: 0px;
-		display: none;
+	.zc-close{
+		display:block;
+		top:0px;
 	}
 
-	.zc-months {
+	.zc-months{
+		
 		margin-left:0;
 		margin-right:0;
 	}
-
-	.zcalendar-wrap {
-		display: none;
-		position: absolute;
-		top: 0px;
-	}
-	
-	.zcalendar-holder {
-		position: fixed;
-		top: 117px;
-		width: 100%;
-		height: calc(100vh - 229px);
-		overflow-y: scroll;
-		z-index: 100;
-		background-color: #fff;
-
-	}
-	
-	.ob-zcalendar-top {
-		display: block;
-		position: fixed;
-		top: 0px;
-		left: 0px;
-		width: 100%;
-		z-index: 1;
-	}
-
-	.ob-zcalendar-title {
-		display: flex;
-		justify-content: space-between;
-		background-color: #000000;
-		color: #fff;
-		font-size: 16px;
-		font-weight: bold;
-		padding: 26px 23px 23px 20px;
-		line-height: 19px;
-	}
-
-	.ob-mobile-weekdays {
-		background-color: #EEEEEE;
-		width: 100%;
-	}
-
-	.ob-mobile-weekdays span {
-		display: inline-block;
-		width: 50px;
-		text-align: center;
-		font-weight: 400;
-		text-transform: uppercase;
-		font-size: 12px;
-		padding: 17px 0px 18px 0px;
-		line-height: 15px;
-	}
-
-	.ob-mobile-weekdays div {
-		display: flex;
-		justify-content: center;
-	}
-
-	.zcalendar {
-		position: static;
-		background-color: #fff;
-	}
-
-	.ob-zcalendar-bottom {
-		display: block;
-		position: fixed;
-		bottom: 0px;
-		width: 100%;
-		height: 110px;
-		background-color: #fff;
-		z-index: 101;
-		padding: 20px 30px;
-		box-shadow: 0px 0px 20px #746969;
-		text-align: center;
-	}
-
-	.zc-info-bar {
-		display: none;
-	}
-
-	#mobile-accept-date {  
-		background-color: #000;
-	    color: #fff;
-	    display: block;
-	    width: 100%;
-	    font-size: 14px;
-	    font-weight: 800;
-	    -webkit-appearance: none;
-	    border: 0px;
-	    border-radius: 4px;
-	    margin-top: 10px;
-	    height: 40px;
-	    text-align: center;
-	    padding: 10px;
-	    cursor: pointer;
-	}
-
-	.mobile-accept-dates-number {
-	    color: #9C9C9C;
-	    font-size: 12px;
-	}
-
-
-	.mobile-accept-dates-from-to {
-	    color: #000;
-	    font-size: 14px;
-	    font-weight: 800;
-	}
-
-	.number_of_nights-mobile-span {
-		font-size: 11px;
-		color: #9C9C9C;
-	}
-
-
-
-
-
 }

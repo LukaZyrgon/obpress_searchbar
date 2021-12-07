@@ -6,6 +6,7 @@ add_action('wp_ajax_nopriv_get_hotel_availability', 'getPropertyAvailAndPrice');
 function getPropertyAvailAndPrice(){
     // $property,$currency,$date_from,$date_to;
 
+
     $property = $_GET['q'];
     $currency = $_GET['currency_id'];
     $date_from = $_GET['first'];

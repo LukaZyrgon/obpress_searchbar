@@ -10,6 +10,7 @@ jQuery(window).on("elementor/frontend/init", function () {
        *  zyrgon-calendar.js alpha | http://zyrgon.com | (c) 2020
        */
 
+
       moment.tz.setDefault("UTC");
 
       var ZyrgonCalendar = function (options) {
