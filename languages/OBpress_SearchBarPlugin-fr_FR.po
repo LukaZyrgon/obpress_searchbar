@@ -122,3 +122,8 @@ msgstr "Nuit"
 #. Strings for the Calendar
 msgid "Nights"
 msgstr "Nuits"
+
+#. Strings for the Calendar
+msgid "Restricted Days"
+msgstr "Jours avec restrictions"
+

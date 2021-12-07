@@ -205,6 +205,46 @@
 
 	vertical-align:top;
 }
+
+.zc-minimum-stay {
+    width: 12px;
+    position: absolute;
+    top: 5px;
+    height: 12px;
+    right: 6px;
+    font-size: 9px;
+    border-radius: 0px 2px;
+    color: #fff;
+    background-color: #BEAD8E;
+}
+
+
+.loader {
+	display: none;
+	width: 26px;
+    height: 6px;
+    background-color: #E6E6E6;
+    border-radius: 20px;
+    position: relative;
+    margin: 11px auto;
+}
+
+.loader-ball {
+	width: 23px;
+    height: 6px;
+    background-color: #f5f5f5;
+    border-radius: 20px;
+    position:absolute;
+    animation: loader 0.7s infinite;
+    animation-direction: alternate;
+}
+
+@keyframes loader {
+  from {left: 0px; width: 23px}
+  to {left: 24px; width: 6px}
+}
+
+
 .zc-weekday {
 	font-size: 12px;
 	text-transform: uppercase;
@@ -376,7 +416,7 @@
 	right:5px;
 }
 
-.zc-info-bar{
+.zc-info-bar {
 	font-size: 13px;
 	margin-top:17.5px;
 	margin-left:20.5px;
@@ -384,7 +424,8 @@
     margin-bottom: 9px;
     width: calc( 100% - 45px);
 }
-.zc-info-bar-promo{
+
+.zc-info-bar-promo {
 	content:'';
 	margin-left:40px;
 	height: 6px;
@@ -393,8 +434,24 @@
 	display: inline-block;
     margin-bottom: 3px;
     border-radius:5px;
-
 }
+
+.restrictions-gray-icon {
+	display: inline-block;
+    width: 13px;
+    height: 12px;
+    background-color: #BEAD8E;
+    color: #fff;
+    font-size: 9px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 2px;
+	margin-right: 7px;
+	margin-left: 30px;
+}
+
+
+
 
 /* TOOLTIPS */
 
@@ -402,6 +459,9 @@
 	position: relative;
 }
 
+.zc-date {
+	position: relative;
+}
 
 
 
@@ -461,26 +521,22 @@
     border-radius: 2px;
     margin-right: 7px;
     margin-left: 30px;
+
 }
+
 
 .zcalendar [data-title]:before{
 	content:'';
 	position: absolute;
-
 	height: 0px;
 	width: 0px;
-
-	
 	opacity: 0;
     visibility: hidden;
-
 	border-color: #eee transparent;
 	border-style: solid;
 	border-width: 5px 5px 0px 5px;
-	
 	top:-5px;
 	left:calc(50% - 5px);
-
 	z-index: 200;
 }
 
@@ -536,12 +592,19 @@
 	top: 20px;
 }
 
+<<<<<<< HEAD
 
 .ob-zcalendar-top, .ob-zcalendar-bottom {
 	display: none;
 }
 
 
+=======
+.ob-zcalendar-bottom , .ob-zcalendar-top {
+	display: none;
+}
+
+>>>>>>> 00301eef9ef898e295949dd9633b2c6da3d4af6e
 /* between the bootstrap 120 and tablet mode */
 @media(max-width: 1199px)  and (min-width: 991px){
 	.zcalendar{

@@ -1079,7 +1079,7 @@ jQuery(window).on("elementor/frontend/init", function () {
         // $('.select-room-add').css('display', 'block');
         jQuery(".add-room-holder").css("display", "inline-block");
 
-      }
+
 
       jQuery("#guests").on("click", function () {
         var occupancyDropdown = jQuery("#occupancy_dropdown");
@@ -1717,6 +1717,7 @@ jQuery(window).on("elementor/frontend/init", function () {
           childrenAllowedChain();
           
         }
+
 
       });
 

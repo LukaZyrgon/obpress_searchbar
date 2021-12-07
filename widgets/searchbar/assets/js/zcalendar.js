@@ -13,6 +13,58 @@ jQuery(window).on("elementor/frontend/init", function () {
 
       moment.tz.setDefault("UTC");
 
+      // fetch lang and currency
+      var lang = Number($(".obpress-lang-acc-bar").attr("data-lang-selected"));
+
+      var currencySymbol = $(".obpress-curr-text").text() ;
+
+      // used for occupancy change request
+      requestForNewOccupancy = false;
+
+      sameDayAsUTC = true;
+
+
+      // FILL HOTELS DATA ATTRIBUTES WITH TIMEZONE
+      // var chain_id = $("#chain_home").attr("data-chain");
+      // var language = $("#lang_curr").attr("data-lang");
+      // $.get('/timezone/'+chain_id+'/'+language, function(res){
+
+      //   res = JSON.parse(res);
+      //   $.each( res, function( i, val ) {
+      //     $(".hotels_hotel[data-id="+i+"]").attr("data-timezone", val);
+      //   });
+
+      //   // check if hotel is yesterday related to UTC, and declare it in varible sameDayAsUTC
+
+      //   if ( $("#hotel_code").val() != "0" && $("#hotel_code").val() != "") { 
+
+      //     var hotel_code = $("#hotel_code").val();
+
+      //     var UTCday = moment.tz($(".hotels_hotel[data-id="+hotel_code+"]").attr("data-timezone")).format("D");
+
+      //     var localDay = moment.tz("UTC").format("D");
+
+
+      //     if ( UTCday != localDay) {
+      //       sameDayAsUTC = false;
+      //     } else {
+      //       sameDayAsUTC = true;
+      //     }
+
+      //   } else {
+
+      //     // hotel is in same day as UTC
+      //     sameDayAsUTC = true;
+
+      //   }
+
+
+      // })
+
+      // TODO ajax request above
+
+
+
       var ZyrgonCalendar = function (options) {
         //initializing the calendar, first run, and default options
 
@@ -106,7 +158,7 @@ jQuery(window).on("elementor/frontend/init", function () {
         this.promos = [];
 
         // check if its new promo or normal request
-        this.newRequest = false;
+        this.newRequest = true;
 
         this.drawCalendar();
 
@@ -182,6 +234,8 @@ jQuery(window).on("elementor/frontend/init", function () {
 
         return this;
       };
+
+
 
       ZyrgonCalendar.prototype.createListeners = function () {
         //date listeners
@@ -300,7 +354,9 @@ jQuery(window).on("elementor/frontend/init", function () {
       };
 
       ZyrgonCalendar.prototype.destinationChange = function () {
+
         var q = this.getQ();
+
         if (q != this.disablePromoDatesAtQ) {
           this.disablePromoDates = false;
           this.disablePromoDatesAtQ = 0;
@@ -317,10 +373,34 @@ jQuery(window).on("elementor/frontend/init", function () {
 
         }
 
+
+        if (q != 0) {
+          // check if hotel is yesterday related to UTC, and declare it in varible sameDayAsUTC
+
+          var UTCday = moment.tz($(".hotels_hotel[data-id="+q+"]").attr("data-timezone")).format("D");
+
+          var localDay = moment.tz("UTC").format("D");
+
+          if ( UTCday != localDay) {
+            sameDayAsUTC = false;
+          } else {
+            sameDayAsUTC = true;
+          }
+
+          $("[data-unix] .loader").show();
+          $("[data-disabled] .loader").hide();
+
+        } else {
+          sameDayAsUTC = true;
+        }
+
+        this.newRequest = true;
+
         this.unselect();
         this.fill();
 
         return this;
+
       };
 
       ZyrgonCalendar.prototype.drawCalendar = function (advanced) {
@@ -329,8 +409,6 @@ jQuery(window).on("elementor/frontend/init", function () {
         }
 
         this.field.innerHTML = "";
-
-        // console.log(this.field,'field');
 
         //button prev
         var leftBtn = document.createElement("button");
@@ -405,6 +483,11 @@ jQuery(window).on("elementor/frontend/init", function () {
         datePriceBox.classList.add("zc-date-price");
         dateBox.appendChild(datePriceBox);
 
+        var animation = document.createElement('div');
+        animation.classList.add('loader');  
+        $(animation).append("<div class='loader-ball'></div>");
+        dateBox.appendChild(animation);
+
         //make fields for of the month (7 days per week, max 6 weeks = 42)
         for (i = 0; i < 42; i++) {
           dates.appendChild(date.cloneNode(true));
@@ -414,23 +497,48 @@ jQuery(window).on("elementor/frontend/init", function () {
         for (i = 0; i < this.showMonthsNum; i++) {
           months.appendChild(month.cloneNode(true));
         }
+
         if (this.doFetch) {
-          var info = document.createElement("div");
-          var infoDetailsPrices =
-            "" + this.field.getAttribute("data-unavilable");
-          var infoDetailsPromo =
-            '<span class="zc-info-bar-promo"></span> ' +
-            this.field.getAttribute("data-promotional");
-          info.innerHTML = infoDetailsPrices + infoDetailsPromo;
-          info.classList.add("zc-info-bar");
+
+          var info = document.createElement('div');
+
+          var infoDetailsPrices = ''+this.field.getAttribute('data-price-for');
+
+          var restrictedDays  = this.field.getAttribute('data-restriction');
+
+          var oneAdult = this.field.getAttribute('data-adult');
+
+          var pluralAdult = this.field.getAttribute('data-adults');
+
+          var night = this.field.getAttribute('data-night');
+
+          if (lang == 1) {
+            var StringIn = " in"; 
+          } else if (lang == 2 || lang == 3) {
+            var StringIn = " en"; 
+          } else {
+            var StringIn = " em"; 
+          }
+
+
+          var infoInCurrencyString = ' ' + lang + currencySymbol ;
+          info.innerHTML = "<span>" + infoDetailsPrices + "<span class='number-of-adults'> 1 </span><span class='adult-plural'>" + oneAdult + "</span> / 1 " + night + StringIn + " " + 
+          currencySymbol + "</span><span><span class='restrictions-gray-icon'><span>x</span></span>" + restrictedDays + 
+          "</span>" ;
+          info.classList.add('zc-info-bar');
+
           this.field.appendChild(info);
 
+
+          // close element
           var close = document.createElement("div");
           close.classList.add("zc-close");
           close.innerHTML =
             '<img src="/icons/icons_White/iconWhite_Xclose.svg" alt="close">';
           this.field.appendChild(close);
+
         }
+
         this.fill();
         this.createListeners();
 
@@ -441,6 +549,7 @@ jQuery(window).on("elementor/frontend/init", function () {
       ZyrgonCalendar.prototype.nextMonth = function (monthDifference) {
         this.month = moment(this.month, "X").add("1", "M").utc().format("X");
         this.field.querySelector(".zc-btn-prev").disabled = false;
+        this.newRequest = true;
         this.fill();
         return this;
       };
@@ -546,6 +655,26 @@ jQuery(window).on("elementor/frontend/init", function () {
         this.onSelect();
         // this.fill();
       };
+
+
+
+      // String for tooltips
+
+      var NotAvailableText = $(".zcalendar").attr("data-notavailable"); 
+
+      var ClosedOnArrivalText = $(".zcalendar").attr("data-closedonarrival"); 
+
+      var ClosedOnArrivalDeparture = $(".zcalendar").attr("data-closedondeparture"); 
+
+      var MinimumText = "- " + $(".zcalendar").attr("data-minimum-string"); 
+
+      var MaximumText = "- " + $(".zcalendar").attr("data-maximum-string"); 
+
+      var NightsText = $(".zcalendar").attr("data-nights"); 
+
+
+
+
 
       ZyrgonCalendar.prototype.showRange = function (firstM, secondM) {
         var q = this.getQ();
@@ -679,7 +808,6 @@ jQuery(window).on("elementor/frontend/init", function () {
 
       ZyrgonCalendar.prototype.getQ = function () {
         var qInput = document.querySelector("input[name='q']").value;
-        // console.log(qInput,'qInput')
         if (qInput == null) {
           q = 0;
         } else {
@@ -1025,9 +1153,9 @@ jQuery(window).on("elementor/frontend/init", function () {
 
         var monthDiv = this.field.querySelectorAll(".zc-month")[i];
         monthDiv.querySelector(".zc-month-name").innerHTML =
-          month.format("MMMM") + ",";
+        month.format("MMMM") + ",";
         monthDiv.querySelector(".zc-month-year").innerHTML =
-          month.format("YYYY");
+        month.format("YYYY");
 
         var week = first.clone().startOf("week");
 
@@ -1057,57 +1185,168 @@ jQuery(window).on("elementor/frontend/init", function () {
         var firstNonFetched = null;
 
         for (i = 0; i < 42; i++) {
+
           dates[i].querySelector(".zc-date-price").innerHTML = "";
 
+          dates[i].removeAttribute("data-open");
+
+          dates[i].removeAttribute("data-closed-on-arrival");
+
+          dates[i].removeAttribute("data-closed-on-departure");
+
+          dates[i].removeAttribute("data-minimum-stay-message");
+
+          dates[i].removeAttribute("data-maximum-stay-message");
+
+          $(dates[i]).find(".zc-minimum-stay").remove();
+
           if (calendar[i] != null) {
+
             var unix = Number(calendar[i].format("X"));
 
             dates[i].setAttribute("data-unix", unix);
             dates[i].querySelector(".zc-date-date").innerHTML =
-              calendar[i].format("D");
+            calendar[i].format("D");
 
             if (this.data[q].calendar[unix] != null) {
+
               if (this.data[q].calendar[unix].available == false) {
+
                 dates[i].setAttribute("data-disabled", "true");
+
               } else {
+
                 //price in front or back depends on the language
+
+                var price = this.data[q].calendar[unix].price.toFixed(2);
+
                 var currency = this.data[q].calendar[unix].currency;
+
                 currency = this.currencies[currency];
-                var value = this.data[q].calendar[unix].price.toFixed(2);
-                var price = value + currency;
 
                 if (lang != 1 && currency != "COP") {
-                  var vp = value.split(".");
-                  value = vp[0];
-                }
-
-                if (lang == 1 || lang == 8) {
-                  price = currency + value;
-                } else {
-                  price = value + currency;
+                  var vp = price.split('.');
+                  price = vp[0]+','+vp[1];
                 }
 
                 if (currency == "COP") {
+
                   var valuta = " mil";
 
                   if (lang == 1 || lang == 2) {
                     var valuta = " k";
                   }
 
-                  price = Math.floor(value / 1000) + valuta;
+                  price = Math.floor( price / 1000) + valuta;
+
                 }
 
                 dates[i].querySelector(".zc-date-price").innerHTML = price;
-                dates[i].setAttribute("data-title", "Check In");
+
+                dates[i].setAttribute("data-title","Check In"); 
+
+                dates[i].setAttribute("data-open", this.data[q].calendar[unix].open);
+
+
+            
+                if (  this.data[q].calendar[unix].open  == false ) {
+
+                  dates[i].setAttribute( "data-title" , NotAvailableText ); 
+
+                  dates[i].querySelector(".zc-date-price").innerHTML =  "";
+
+                }
+
+
+                // add restrictions
+
+                var restrictions =  this.data[q].calendar[unix].restrictionTypes ;
+
+                if ( restrictions.length != 0 ) {
+
+                  for ( k = 0 ; k < restrictions.length ; k++ ) {
+
+                      if (  restrictions[k] == 4 ) {
+
+                          dates[i].setAttribute( "data-stay-through" , "true" );
+
+                          dates[i].setAttribute( "data-title" , "Stay through");
+
+                      }
+
+                      if (  typeof restrictions[k] == "string" ) {
+
+                          var splited_restrictions = restrictions[k].split(",") ;
+
+
+                          if ( splited_restrictions[0] == "0" ) {
+
+                            $(dates[i]).find(".zc-minimum-stay").remove();
+
+                            dates[i].setAttribute( "data-minimum-length-of-stay" , splited_restrictions[1]  );
+
+                            dates[i].setAttribute( "data-minimum-stay-message" ,  MinimumText + " " + splited_restrictions[1] + " " + NightsText );
+
+                            dates[i].setAttribute("data-two-messages-title", "true");
+        
+                            $( "<div class='zc-minimum-stay'>"+splited_restrictions[1]+"</div>" ).appendTo( dates[i] );
+
+                          }
+
+
+                          if ( splited_restrictions[0] == "1" ) {
+
+                            $(dates[i]).find(".zc-maximum-stay").remove();
+
+                            dates[i].setAttribute( "data-maximum-length-of-stay" , splited_restrictions[1]  );
+
+                            dates[i].setAttribute( "data-maximum-stay-message" ,  MaximumText + " " + splited_restrictions[1] + " " + NightsText );
+
+                            dates[i].setAttribute("data-two-messages-title", "true");
+
+                            $( "<div class='zc-minimum-stay'>"+splited_restrictions[1]+"</div>" ).appendTo( dates[i] );
+
+                          }
+
+                      }
+
+
+
+                      if ( restrictions[k] == 5 ) {
+
+                          dates[i].setAttribute("data-closed-on-arrival" , "true" );
+
+                          dates[i].setAttribute("data-title", ClosedOnArrivalText );
+
+                          //$(dates[i]).addClass("line-through"); 
+
+                      }
+
+
+                      if (  restrictions[k] == 6 ) {
+
+                          dates[i].setAttribute( "data-closed-on-departure" , "true" );
+
+                      }
+
+
+                  }
+
+
+                }
+                    
               }
             }
           } else {
-            //non day
+
+            //non day     
             dates[i].removeAttribute("data-closed");
-            dates[i].querySelector(".zc-date-date").innerHTML = "";
-            dates[i].querySelector(".zc-date-price").innerHTML = "";
+            dates[i].querySelector(".zc-date-date").innerHTML= "";
+            dates[i].querySelector(".zc-date-price").innerHTML= "";
             dates[i].removeAttribute("data-title");
-            dates[i].removeAttribute("data-unix");
+            dates[i].removeAttribute("data-unix");  
+            dates[i].removeAttribute("data-open"); 
+
           }
         }
 
@@ -1127,16 +1366,9 @@ jQuery(window).on("elementor/frontend/init", function () {
       };
 
       //this.addDate(q, x, avail, price, currency, promo, open);
-      ZyrgonCalendar.prototype.addDate = function (
-        q,
-        unix,
-        avail,
-        price,
-        currency,
-        promo,
-        open
-      ) {
-        if (!this.data.hasOwnProperty(q)) {
+      ZyrgonCalendar.prototype.addDate = function (q,unix,avail,price,currency,promo,open,restrictionTypes) {
+
+        if (!this.data.hasOwnProperty(q)) {   
           this.data[q] = {};
           this.data[q].calendar = {};
         }
@@ -1147,6 +1379,8 @@ jQuery(window).on("elementor/frontend/init", function () {
         this.data[q].calendar[unix].currency = currency;
         this.data[q].calendar[unix].promo = promo;
         this.data[q].calendar[unix].open = open;
+        this.data[q].calendar[unix].restrictionTypes = restrictionTypes;
+
       };
 
       ZyrgonCalendar.prototype.fetchDates = function () {
@@ -1197,26 +1431,35 @@ jQuery(window).on("elementor/frontend/init", function () {
 
         // ALI AKO JE PROMO A POSLAT JE OBICAN, ILI OBRNUTO, PUSTI GA DALJE
 
-        if (
-          this.hasDate(q, lastUnix) &&
-          this.hasDate(q, firstUnix) &&
-          this.newRequest == false
-        )
+
+        if ( this.newRequest == false ) {
           return;
+        }
 
         this.newRequest = false;
 
-        //find first non checked and go 2 months from that one
+        // SKIP THIS ONCE IF OCCUPANCY CHANGE
         var unix = firstUnix;
-        for (var i = 0; i < datesDivs.length; i++) {
-          unix = Number(datesDivs[i].getAttribute("data-unix"));
-          if (!this.hasDate(q, unix)) {
-            break;
+
+        if (  requestForNewOccupancy  == false ) {
+
+          for (var i = 0; i < datesDivs.length; i++){
+
+            unix = Number(datesDivs[i].getAttribute("data-unix"));
+
+            if (!this.hasDate(q,unix)) {
+              break;
+            }
+
           }
+
         }
+
+        requestForNewOccupancy  = false ;
 
         //save all dates
         var firstM = moment(unix, "X").startOf("day").add(12, "hours");
+
         var first = firstM.format("YYYY-MM-DD");
 
         var secondM = firstM
@@ -1239,6 +1482,7 @@ jQuery(window).on("elementor/frontend/init", function () {
         var xhr = new XMLHttpRequest();
 
         xhr.onload = function () {
+
           if (xhr.status == 500) {
             //try again, wait 5ms
             setTimeout(
@@ -1248,7 +1492,13 @@ jQuery(window).on("elementor/frontend/init", function () {
               5
             );
           }
+
+          $(".loader").hide();
+
+          $(".zc-date-price").show();
+
           if (xhr.status >= 200 && xhr.status < 300) {
+
             var available = []; //temp to save avail dates
             var res = xhr.response ? xhr.response : xhr.responseText;
 
@@ -1257,11 +1507,13 @@ jQuery(window).on("elementor/frontend/init", function () {
             var arr = JSON.parse(res);
 
             for (var i = 0; i < arr.length; i++) {
+
               var x = Number(
                 moment(arr[i].date).startOf("day").add(12, "hours").format("X")
               );
 
               var open = false;
+
               if (arr[i].status == "Open") {
                 open = true;
               }
@@ -1271,9 +1523,64 @@ jQuery(window).on("elementor/frontend/init", function () {
               var currency = arr[i].currency;
               var promo = arr[i].promo;
               var fetched = true;
+              var restrictionType = arr[i].restrictions;
+              var restrictionTypes = [];
 
-              this.addDate(q, x, avail, price, currency, promo, open);
+              // search for restrictions
+              if ( restrictionType != null) {
+
+                for ( j = 0 ; j < restrictionType.length ; j++ ) {
+
+                  // closed on arrival and departure
+                  if ( restrictionType[j].RestrictionType == 5  || restrictionType[j].RestrictionType == 6  ) {
+
+                    restrictionTypes.push( restrictionType[j].RestrictionType );
+
+                  } 
+
+
+                  //minimum length of stay
+                  if ( restrictionType[j].RestrictionType == 0 ) {
+
+                    restrictionTypes.push( restrictionType[j].RestrictionType + "," + restrictionType[j].Time );
+
+                  }
+
+
+                  // stay through
+                  // if ( restrictionType[j].RestrictionType == 4 ) {  
+
+                  //   restrictionTypes.push(4);
+
+
+                  //  }
+
+
+                   // maximum length of stay
+                  // if ( restrictionType[j].RestrictionType == 1 ) {
+
+                  //  restrictionTypes.push( restrictionType[j].RestrictionType + "," + restrictionType[j].Time );
+
+
+                  // }
+
+
+                  // min advance stay
+                  // if ( restrictionType[j].RestrictionType == 3 ) {
+
+
+                  //  restrictionTypes.push( restrictionType[j].RestrictionType + "," + restrictionType[j].Time );
+
+                  // }
+
+
+                }
+
+              }
+
+              this.addDate(q, x, avail, price, currency, promo, open, restrictionTypes);
               available.push(x);
+
             }
 
             //compare available days with all days to get unavailable days (disabled)
@@ -1285,7 +1592,7 @@ jQuery(window).on("elementor/frontend/init", function () {
 
             this.fill();
           } else {
-            // console.log("error, cant fetch, try again ");
+             //console.log("error, cant fetch, try again ");
           }
         }.bind(this);
 
@@ -1311,8 +1618,21 @@ jQuery(window).on("elementor/frontend/init", function () {
             true
           );
         } else if (c == null && this.promo !== true) {
+
           var action = "get_hotel_availability";
-          // xhr.open('GET', searchbarAjax.ajaxurl+'?'+q+'/'+currencyId+'/'+first+'/'+ second, true);
+
+          var adults = $("#ad").val();
+
+          if ( adults == "" || adults == undefined ) { adults = 1};
+
+          var children = $("#ch").val();
+
+          var children_ages = $("#ag").val();
+
+          if (children == "") {children = 0};
+
+          if (children_ages == "") {children_ages = 0};
+
 
           xhr.open(
             "GET",
@@ -1324,12 +1644,21 @@ jQuery(window).on("elementor/frontend/init", function () {
               "&first=" +
               first +
               "&second=" +
-              second +
+              second + 
+              "&adults=" +
+              adults +
+              "&children=" +
+              children +
+              "&children_ages=" +
+              children_ages +
               "&action=" +
               action,
             true
           );
+
+
         } else {
+          // TODO dont send for chain
           var action = "get_chain_availability";
 
           var chain = jQuery("input[name='c']").attr("value");
@@ -1557,13 +1886,45 @@ jQuery(window).on("elementor/frontend/init", function () {
         },
       });
 
+
+
+
+      // Send request with new adults and kids IN PROGRESS
+      jQuery(document).on("click", ".select-occupancy-apply", function () {
+
+        requestForNewOccupancy = true;
+        widget.newRequest = true;
+        $(".zc-date-price").hide();
+        $("[data-unix] .loader").show();
+        $("[data-disabled] .loader").hide();
+        widget.fill();
+
+        // change text in bottom label
+        var newAdultsNumber = Math.min( ...$("#ad").val().split(",")  ) ;
+
+        $(".number-of-adults").text( " " + newAdultsNumber);
+        if ( newAdultsNumber == 1 ) {
+          $(".adult-plural").text( " " + $(".zcalendar").data("adult")  );
+        } else {
+          $(".adult-plural").text( " " + $(".zcalendar").data("adults")  );
+        }
+
+
+      });
+
+
+
+
+
+
+
       // SHOW SELECTED DATES IN STEP 2
 
       this.startDate =
         moment(jQuery("#date_from").val(), "DDMMYYYY").unix() + 43200;
 
       var endDate = moment(jQuery("#date_to").val(), "DDMMYYYY").unix() + 43200;
-      // console.log(endDate);
+
       jQuery(".zc-dates")
         .find("div[data-unix=" + this.startDate + "]")
         .click();
