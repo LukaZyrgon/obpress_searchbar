@@ -654,6 +654,11 @@ select:focus {
 
 .add-room-title {
   float: left;
+  text-transform: lowercase;
+}
+
+.add-room-title::first-letter {
+  text-transform: uppercase;
 }
 
 .select-room-buttons {
