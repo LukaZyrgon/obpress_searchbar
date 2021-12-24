@@ -542,64 +542,51 @@ class Searchbar extends \Elementor\Widget_Base
 				}
 			}
 		}
-
-
+		$hotelFolders = array_values($hotelFolders);
 
 
 
 		// if its sinle hotel, get max child age
 		if ($counter_for_hotel == 1) {
 
-				$hotelId = get_option('hotel_id');
+			$hotelId = get_option('hotel_id');
 
-				// call getChildTerms API call, use cached if its cached
+			$childrenTerms = BeApi::ApiCache('child_terms_'.$hotelId , BeApi::$cache_time['child_terms'], function() use ($hotelId){
+				return BeApi::getChildTerms($hotelId);
+			});
+			$childrenTerms =  $childrenTerms->Result ;
 
-				$childrenTerms = BeApi::ApiCache('child_terms_'.$hotelId , BeApi::$cache_time['child_terms'], function() use ($hotelId){
-		            return BeApi::getChildTerms($hotelId);
-		        });
+			if ($childrenTerms != null) {
+				$childrenMaxAge = 0;
 
+				//SEARCH FOR CHILDREN LIMIT WITH CODE 1 WHICH MEANS CHILDREN
+				foreach ($childrenTerms as $childrenTerm) {
+					if ($childrenTerm->ChargeAs == 1 && $childrenTerm->MaxAge > $childrenMaxAge) {
+						$childrenMaxAge = $childrenTerm->MaxAge;
+					}
+				}
 
-				$childrenTerms =  $childrenTerms->Result ;
+				//IF DON'T EXIST CHILDREN LIMITS WITH CODE 1 THEN SEARCH FOR CHILDREN WITH CODE 3 WHCIH MEANS FREE CHILDREN
+				if ($childrenMaxAge == 0) {
+					foreach ($childrenTerms as $childrenTerm) {
+						if($childrenTerm->ChargeAs == 3 && $childrenTerm->MaxAge > $childrenMaxAge) {
+							$childrenMaxAge = $childrenTerm->MaxAge;
+						} 
+					}
+				}
 
-				if ($childrenTerms != null) {
+				//IF DON'T EXIST ANY INFORMATION ABOUT CHILDREN THAN LIMIT TO THE 17 YEARS
+				if ($childrenMaxAge == 0) {
+					$childrenMaxAge = 17;
+				} 
 
-	            $childrenMaxAge = 0;
-
-	            //SEARCH FOR CHILDREN LIMIT WITH CODE 1 WHICH MEANS CHILDREN
-	            foreach ($childrenTerms as $childrenTerm) {
-	                if ($childrenTerm->ChargeAs == 1 && $childrenTerm->MaxAge > $childrenMaxAge) {
-	                    $childrenMaxAge = $childrenTerm->MaxAge;
-	                }
-	            }
-
-	            //IF DON'T EXIST CHILDREN LIMITS WITH CODE 1 THEN SEARCH FOR CHILDREN WITH CODE 3 WHCIH MEANS FREE CHILDREN
-	            if ($childrenMaxAge == 0) {
-	                foreach ($childrenTerms as $childrenTerm) {
-	                    if($childrenTerm->ChargeAs == 3 && $childrenTerm->MaxAge > $childrenMaxAge) {
-	                        $childrenMaxAge = $childrenTerm->MaxAge;
-	                    } 
-	                }
-	            }
-
-	            //IF DON'T EXIST ANY INFORMATION ABOUT CHILDREN THAN LIMIT TO THE 17 YEARS
-	            if ($childrenMaxAge == 0) {
-	                $childrenMaxAge = 17;
-	            } 
-
-	        	}  else {
-		            $childrenMaxAge = 17;
-		        }
-
-
+			} else {
+				$childrenMaxAge = 17;
+			}
  
 		} else {
-
-			 	$childrenMaxAge = 17;
-
+			$childrenMaxAge = 17;
 		}
-
-
-		$hotelFolders = array_values($hotelFolders);
 
 		//if set, if today or later
 		$todayDateTime = new \DateTime('today');
