@@ -164,8 +164,7 @@ button:disabled {
 }
 
 .select-room .select-room-title {
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 16px;
 }
 
 #index {
@@ -421,6 +420,7 @@ input:focus {
 }
 
 
+
 .select-room {
   display: inline-block;
   width: 100%;
@@ -489,11 +489,9 @@ input:focus {
 
 .select-value {
   text-align: center;
-  /*width: 32px;*/
+  width: 32px;
   display: inline-block;
   vertical-align: -moz-middle-with-baseline;
-  margin-left: 16px;
-  margin-right: 15px;
 }
 
 .select-child-ages-holder {
