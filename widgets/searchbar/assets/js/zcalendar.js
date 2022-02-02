@@ -343,7 +343,11 @@ jQuery(window).on("elementor/frontend/init", function () {
       };
 
       ZyrgonCalendar.prototype.hide = function () {
+        console.log(resolution);
         jQuery(this.widget).slideUp(200);
+        if (resolution == 3) {
+          $(".zcalendar-wrap").hide();
+        }
         jQuery(".ob-searchbar-calendar").removeClass("opened");
         jQuery(".section1").css("display", "block");
         jQuery(".header-top-spacer").css("display", "block");
@@ -591,6 +595,7 @@ jQuery(window).on("elementor/frontend/init", function () {
       };
 
       ZyrgonCalendar.prototype.selectDate = function (e) {
+
         var target = e.target ? e.target : e.srcElement;
         var target = this.getDateElement(target);
         if (target.hasAttribute("data-disabled")) return; // if date is disabled you cant select it
@@ -1745,6 +1750,7 @@ jQuery(window).on("elementor/frontend/init", function () {
         }
 
         if (jQuery(".zcalendar").is(":visible")) {
+          console.log("ovde");
           jQuery(".zcalendar").slideUp(200);
         } else {
           jQuery(".zcalendar").slideDown(200);
@@ -1838,8 +1844,10 @@ jQuery(window).on("elementor/frontend/init", function () {
         doFetch: true,
         promo: false,
         onSelect: function () {
+
           document.querySelector("input[name='CheckIn']").value =
             this.start.format(this.outputDateFormat);
+
           document.querySelector("input[name='CheckOut']").value =
             this.end.format(this.outputDateFormat);
 

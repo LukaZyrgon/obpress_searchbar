@@ -39,6 +39,10 @@
         <div class="ob-searchbar-calendar">
             <p><?php _e('DATES OF STAY', 'obpress'); ?></p>
             <input class="calendarToggle" type="text" id="calendar_dates" value="<?php echo $CheckInShow ?? date("d/m/Y") ?> - <?php echo $CheckOutShow ?? date("d/m/Y", strtotime("+1 day")) ?>"  readonly>
+
+            <input type="text" id="date_from_mobile" value="<?php echo $CheckInShow ?? date("d m Y") ?>" readonly> 
+            <input type="text" id="date_to_mobile" value="<?php echo $CheckInShow ?? date("d m Y") ?>" readonly>
+
             <input class="calendarToggle" type="hidden" id="date_from" name="CheckIn" value="<?php echo $CheckIn ?? date("dmY") ?>">
             <input class="calendarToggle" type="hidden" id="date_to" name="CheckOut" value="<?php echo $CheckOut ?? date("dmy", strtotime("+1 day")) ?>">            
         </div>

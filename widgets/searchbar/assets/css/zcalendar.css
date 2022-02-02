@@ -5,6 +5,10 @@
 	overflow: hidden;
 }
 
+.ob-zcalendar-top , .ob-zcalendar-bottom {
+	display: none;
+}
+
 .zcalendar{
 	margin-left:auto;
 	margin-right:auto;	
@@ -592,19 +596,14 @@
 	top: 20px;
 }
 
-<<<<<<< HEAD
+
 
 .ob-zcalendar-top, .ob-zcalendar-bottom {
 	display: none;
 }
 
 
-=======
-.ob-zcalendar-bottom , .ob-zcalendar-top {
-	display: none;
-}
 
->>>>>>> 00301eef9ef898e295949dd9633b2c6da3d4af6e
 /* between the bootstrap 120 and tablet mode */
 @media(max-width: 1199px)  and (min-width: 991px){
 	.zcalendar{
@@ -630,6 +629,8 @@
 		bottom:56px;
 	}
 }
+
+
 /*Screen width mobile mode */
 @media(max-width: 992px) {
 
@@ -747,8 +748,20 @@
 
 	.zcalendar-wrap {
 		display: none;
-		position: absolute;
+		position: fixed;
 		top: 0px;
+		left: 0px;
+		min-height: 100vh;
+    	width: 100%;
+    	z-index: 100;
+    	overflow: scroll;
+    	background-color: #fff;
+	}
+
+	.zcalendar {
+		position: static;
+		background-color: #fff;
+		display: block;
 	}
 	
 	.zcalendar-holder {
@@ -759,7 +772,6 @@
 		overflow-y: scroll;
 		z-index: 100;
 		background-color: #fff;
-
 	}
 	
 	.ob-zcalendar-top {
@@ -803,11 +815,7 @@
 		justify-content: center;
 	}
 
-	.zcalendar {
-		position: static;
-		background-color: #fff;
-	}
-
+	
 	.ob-zcalendar-bottom {
 		display: block;
 		position: fixed;

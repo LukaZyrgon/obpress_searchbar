@@ -5,6 +5,9 @@ jQuery(window).on("elementor/frontend/init", function () {
   elementorFrontend.hooks.addAction(
     "frontend/element_ready/Searchbar.default",
     function ($scope, $) {
+
+
+
       /* getting url params */
       console.log('asd');
       hotelFolders = JSON.parse(
@@ -342,14 +345,19 @@ jQuery(window).on("elementor/frontend/init", function () {
       });
 
       jQuery("#hotels,.as-destination-input").click(function () {
-        var dropdown = jQuery(this).parent().find(".hotels_dropdown");
-        if (dropdown.css("display") == "none") {
-          dropdown.find("*").removeClass("d-none");
-          dropdown.slideDown(200);
-          jQuery(".ob-searchbar-hotel").addClass("opened");
+
+        if (resolution == 1 ) {
+
+          var dropdown = jQuery(this).parent().find(".hotels_dropdown");
+
+          if (dropdown.css("display") == "none") {
+            dropdown.find("*").removeClass("d-none");
+            dropdown.slideDown(200);
+            jQuery(".ob-searchbar-hotel").addClass("opened");
+          }
+
         }
-        //$(this).parent().find(".hotels_dropdown")
-        //$(this).parent().find(".hotels_dropdown")
+       
       });
 
       jQuery(document).mouseup(function (e) {
@@ -1079,6 +1087,8 @@ jQuery(window).on("elementor/frontend/init", function () {
         // $('.select-room-add').css('display', 'block');
         jQuery(".add-room-holder").css("display", "inline-block");
 
+      }
+
 
 
       jQuery("#guests").on("click", function () {
@@ -1723,7 +1733,6 @@ jQuery(window).on("elementor/frontend/init", function () {
 
 
 
-
       // disable submit if children are choosen on hotels which dont allow them
 
       function childrenAllowed(load) {
@@ -1811,11 +1820,27 @@ jQuery(window).on("elementor/frontend/init", function () {
 
 
 
+    
+
+
+  
+      jQuery(document).on("click", "#date_to_mobile , #date_from_mobile", function () {
+
+
+        $(".zcalendar-wrap").show();
+
+        $(".zcalendar").show();
+
+
+
+      });
 
 
 
 
 
-    }
-  );
+  });
+
+
+
 });
