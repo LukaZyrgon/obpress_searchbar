@@ -1,0 +1,269 @@
+.obpress-hotel-searchbar-holder {
+    width: 100%;
+    background-color: #FFFFFF;
+    height: 80px;
+    position: fixed;
+    z-index: 10;
+    top: 126px;
+    left: 0px;
+}
+
+.obpress-body-admin-bar-shown  .obpress-hotel-searchbar-holder {
+    top: 158px;
+}
+
+.scrolled-shadow {
+    box-shadow: 0px 0px 4px #c9c9c9;
+}
+
+.obpress-hotel-searchbar {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;    
+    /* padding: 0 30px; */
+}
+
+.contain {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1254px;    
+}
+
+.obpress-hotel-searchbar-back-holder span{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #0C83D9;
+}
+
+.obpress-hotel-searchbar-back-holder span:hover {
+    cursor: pointer;
+}
+
+.obpress-hotel-searchbar-back-holder svg {
+    margin-right: 8px;
+}
+
+.obpress-hotel-searchbar-back-holder svg .b, .obpress-hotel-searchbar-back-holder svg .c {
+    stroke: #0C83D9;
+}
+
+.obpress-hotel-searchbar-info {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.obpress-hotel-searchbar-info-hotel {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 135px;
+    border-right: 1px solid #DFDFDF;    
+}
+
+.obpress-hotel-searchbar-info-string {
+    font-size: 12px;
+    color: #2C2F33;
+    margin-bottom: 3px;
+    line-height: 15px;
+}
+
+.obpress-hotel-searchbar-info-location {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2C2F33;
+    line-height: 19px;
+}
+
+.obpress-hotel-searchbar-dates {
+    display: flex;
+    align-items: flex-end;
+    border-right: 1px solid #DFDFDF;
+    padding-left: 60px;
+    padding-right: 60px;    
+}
+
+.obpress-hotel-searchbar-start, .obpress-hotel-searchbar-end {
+    display: flex;
+    flex-direction: column;
+}
+
+.obpress-hotel-searchbar-start {
+    margin-right: 20px;    
+}
+
+.obpress-hotel-searchbar-start-string, .obpress-hotel-searchbar-end-string {
+    font-size: 12px;
+    color: #2C2F33;
+    line-height: 15px;
+    margin-bottom: 3px;
+}
+
+.obpress-hotel-searchbar-start-date, .obpress-hotel-searchbar-end-date {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2C2F33;
+    line-height: 19px;
+}
+
+.obpress-hotel-searchbar-arrow {
+    display: flex;
+    margin-right: 25px;
+    align-self: flex-end    
+}
+
+.obpress-hotel-searchbar-arrow .b, .obpress-hotel-searchbar-arrow .c {
+    stroke: #000000;
+}
+
+.obpress-hotel-searchbar-button {
+    font-size: 14px;
+    background-color: #fff;
+    padding: 0px;
+    font-weight: bold;
+    border: 2px solid #000000;
+    width: 138px;
+    height: 40px;
+}
+
+.obpress-hotel-searchbar-button:hover {
+    cursor: pointer;
+}
+
+.obpress-hotel-searchbar-search-info {
+    padding-left: 40px;
+    display: flex;
+}
+
+.obpress-hotel-searchbar-nights, .obpress-hotel-searchbar-rooms, .obpress-hotel-searchbar-guests {
+    display: flex;
+    flex-direction: column;
+}
+
+.obpress-hotel-searchbar-nights, .obpress-hotel-searchbar-rooms {
+    margin-right: 30px;
+}
+
+.obpress-hotel-searchbar-nights-string, .obpress-hotel-searchbar-rooms-string, .obpress-hotel-searchbar-guests-string {
+    font-size: 12px;
+    line-height: 15px;
+    margin-bottom: 3px;
+}
+
+.obpress-hotel-searchbar-nights-num, .obpress-hotel-searchbar-rooms-num, .obpress-hotel-searchbar-guests-num {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 19px;
+}
+
+.obpress-searchbar-modal .modal-dialog {
+    max-width: 1260px;
+    margin-top: 135px;
+} 
+
+.obpress-searchbar-modal .modal-dialog .close-modal {
+    background-image: url(../../icons/cross_medium_bold.svg);
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    right: 0px;
+    top: -40px;
+}
+
+.obpress-hotel-searchbar-icon {
+    display: none;
+}
+
+
+
+
+
+
+/* MOBILE */
+
+@media (max-width: 1279px) {
+
+   .obpress-hotel-searchbar-back-holder , 
+   .obpress-hotel-searchbar-info-hotel  {
+    display: none;
+   }
+
+   .obpress-hotel-searchbar {
+       justify-content: center;
+       padding: 0px 14px;
+   }
+
+   .obpress-hotel-searchbar-info {
+       width: unset;
+   }
+
+  .obpress-hotel-searchbar-holder {
+     height: 68px;
+   }
+
+   .obpress-hotel-searchbar-holder {
+     top: 70px;
+   }
+
+   .obpress-header-spacer {
+     height: 150px;
+   }
+
+  .obpress-hotel-searchbar-start-string, .obpress-hotel-searchbar-end-string ,
+  .obpress-hotel-searchbar-nights-string, .obpress-hotel-searchbar-rooms-string, 
+  .obpress-hotel-searchbar-guests-string { 
+    font-size: 9px;
+  }
+
+  .obpress-hotel-searchbar-nights-num, .obpress-hotel-searchbar-rooms-num, 
+  .obpress-hotel-searchbar-guests-num , .obpress-hotel-searchbar-start-date, 
+  .obpress-hotel-searchbar-end-date {
+    font-size: 14px;
+  }
+
+  .obpress-hotel-searchbar-arrow , .obpress-hotel-searchbar-start {
+    margin-right: 5px;
+  }
+
+  .obpress-hotel-searchbar-dates {
+    padding: 0px 10px 0px 0px;
+  }
+
+  .obpress-hotel-searchbar-search-info {
+    padding: 0px 24px 0px 10px;
+  }
+
+  .obpress-hotel-searchbar-nights, .obpress-hotel-searchbar-rooms {
+    margin-right: 10px;
+  }
+
+  .obpress-hotel-searchbar-icon {
+      display: block;
+      align-self: center;
+  }
+
+  .obpress-hotel-searchbar-button {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    padding: 0px;
+    color: #4B8CF4;
+    font-size: 9px;
+    font-weight: 400;
+    width: unset;
+    background-color: unset;
+  }
+
+  .obpress-hotel-searchbar-icon .b {
+    stroke: #4B8CF4;
+    fill: none;
+  }
+
+
+}
