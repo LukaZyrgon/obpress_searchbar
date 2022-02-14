@@ -732,7 +732,7 @@ select:focus {
   }
 
   #check_in_mobile, #check_out_mobile {
-    background-image: url('../../icons/calendar.svg');
+    background-image: url('../../icons/assets/calendar.svg');
     padding-left: 51px;
     background-position-x: 15px;
     border: unset;
@@ -832,7 +832,12 @@ select:focus {
     background-origin: content-box;
     border: unset;
   }
-  
+
+  #hotels {
+    background-image: url('../../assets/icons/hotel-sign.svg');
+    background-position-x: left -35px;
+  }
+
   .ob-searchbar-hotel, .ob-searchbar-calendar, .ob-searchbar-guests, .ob-searchbar-promo {
     padding: 22px 0px 0px 0px!important;
     width: 100%;
@@ -982,9 +987,6 @@ select:focus {
     border-color: #000000!important;
   }
 
-  /* .ob-mobile-i-have-a-code input {
-    width: 150px!important;
-  } */
 
   .ob-searchbar-promo {
     max-width: unset;
