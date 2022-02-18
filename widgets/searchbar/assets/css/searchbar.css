@@ -691,8 +691,8 @@ select:focus {
 
   .ob-searchbar.obpress-hotel-searchbar-custom {
     flex-direction: column;
-    padding: 0px 20px!important;
-    box-shadow: unset;
+    padding: 0px 20px 40px 20px !important;
+    box-shadow: 0 3px 6px #00000029;
   }
 
   .obpress-mobile-close-hotels-dropdown-holder {
@@ -736,7 +736,7 @@ select:focus {
   }
 
   #check_in_mobile, #check_out_mobile {
-    background-image: url('../../icons/assets/calendar.svg');
+    background-image: url('../../assets/icons/calendar.png');
     padding-left: 51px;
     background-position-x: 15px;
     border: unset;
@@ -1005,6 +1005,7 @@ select:focus {
   .ob-searchbar-promo .checkbox-custom-label {
     font-size: 14px;
     color: #273240;
+    padding-left: 9px;
   }
 
   #promo_code {
@@ -1084,12 +1085,14 @@ select:focus {
 
 
   .ob-searchbar-button {
-    padding: 28px 0px!important;
+    padding: 0px!important;
     width: 100%;
   }
 
   .ob-searchbar-submit {
-    width: 100%;
+    width: 100%!important;
+    height: 50px;
+    font-size: 18px;
   }
 
   .container.obpress-hotel-results-holder {
