@@ -472,7 +472,6 @@ jQuery(document).ready(function($){
 
   function promoCodeDisabler() {
 
-    console.log("uso");
     //enable all
     jQuery("#group_code").prop("disabled", false);
     jQuery("#Code").prop("disabled", false);

@@ -197,6 +197,9 @@
 
             </div>
         </div>
+
+
+
             <div class="ob-searchbar-promo">
                 <p><?php _e('I HAVE A CODE', 'obpress'); ?></p>
                 <input type="text" id="promo_code" value="" placeholder="Escolha o tipo" readonly>
@@ -249,6 +252,7 @@
                     </div>
                 </div>
             </div>
+            
         <div class="ob-searchbar-button">
             <button class="ob-searchbar-submit" type="submit"><?php _e('Search', 'obpress'); ?></button>
         </div>       

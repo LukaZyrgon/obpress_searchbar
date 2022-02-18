@@ -11,7 +11,7 @@ class Searchbar extends \Elementor\Widget_Base
 
 		
 		wp_register_script( 'searchbar_js',  plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/searchbar.js'), array('jquery'), [ 'elementor-frontend' ], '1.0.0', true  );
-		wp_register_script( 'zcalendar_js', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/zcalendar.js'), array('jquery'), [ 'elementor-frontend' ], '1.0.0', true );
+		 wp_register_script( 'zcalendar_js', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/zcalendar.js'), array('jquery'), [ 'elementor-frontend' ], '1.0.0', true );
 
 		wp_register_style( 'zcalendar_css', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/css/zcalendar.css') );
 		wp_register_style( 'searchbar_css', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/css/searchbar.css') );		

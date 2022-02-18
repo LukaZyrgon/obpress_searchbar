@@ -134,6 +134,7 @@ final class OBPress_Widget {
 
 		wp_enqueue_script('searchbar_js');
 		wp_enqueue_script('zcalendar_js');
+		
 	}
 
 	public function widget_styles() {
