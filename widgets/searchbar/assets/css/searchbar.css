@@ -14,7 +14,6 @@ body {
   font-family: Montserrat;
   height: 120px;
   padding: 0px 30px!important;
-/*  //box-shadow: 0px 14px 24px #76767629;*/
   flex-wrap: wrap;
   height: 100%;  
   max-width: 100%!important;
@@ -665,6 +664,11 @@ select:focus {
 }
 
 
+.mdc-checkbox__checkmark {
+  height: 20px;
+}
+
+
 
 
 
@@ -982,10 +986,10 @@ select:focus {
     margin-bottom: 0px;
   }
 
-  .ob-mobile-i-have-a-code .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background {
+ /* .ob-mobile-i-have-a-code .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background {
     background-color: #000000!important;
     border-color: #000000!important;
-  }
+  }*/
 
 
   .ob-searchbar-promo {
@@ -1011,13 +1015,13 @@ select:focus {
     position: static!important;
     background-color: #ffffff;
     padding: 0px;
-    margin-top: 29px;
     width: 100%;
   }
 
   #promo_code_dropdown div {
     padding-left: 0px;
     padding-right: 0px;
+    margin-bottom: 12px;
   }
 
   #promo_code_dropdown .input-title {
@@ -1071,12 +1075,13 @@ select:focus {
     background-color: #ffffff!important;
   }
 
-  .material-textfield input:focus ~ .label-title {
+  .material-textfield input:focus ~ .label-title , .material-textfield input.active ~  .label-title {
     color: #000000;
     background-color: #ffffff;
     top: 0;
     transform: translateY(-50%) scale(.9);
-}
+  }
+
 
   .ob-searchbar-button {
     padding: 28px 0px!important;

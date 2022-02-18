@@ -471,22 +471,30 @@ jQuery(document).ready(function($){
   jQuery("#group_code,#Code,#loyalty_code").keyup(promoCodeDisabler);
 
   function promoCodeDisabler() {
+
+    console.log("uso");
     //enable all
     jQuery("#group_code").prop("disabled", false);
     jQuery("#Code").prop("disabled", false);
     jQuery("#loyalty_code").prop("disabled", false);
 
+    jQuery("#promo_code_dropdown input").removeClass("active");
+
     //disable empty
     if (jQuery("#group_code").val().length > 0) {
       jQuery("#Code").prop("disabled", true);
       jQuery("#loyalty_code").prop("disabled", true);
+      jQuery("#group_code").addClass("active");
     } else if (jQuery("#Code").val().length > 0) {
       jQuery("#group_code").prop("disabled", true);
       jQuery("#loyalty_code").prop("disabled", true);
+      jQuery("#Code").addClass("active");
     } else if (jQuery("#loyalty_code").val().length > 0) {
       jQuery("#group_code").prop("disabled", true);
       jQuery("#Code").prop("disabled", true);
+      jQuery("#loyalty_code").addClass("active");
     }
+
   }
 
   //Occupancy Javascript
@@ -865,6 +873,8 @@ jQuery(document).ready(function($){
 
     jQuery(".add-room-holder").css("display", "none");
 
+    jQuery(".add-room-mobile").hide();
+
     // childrenAllowedChain();
 
     if (
@@ -1167,7 +1177,6 @@ jQuery(document).ready(function($){
             if (resolution == 1) {
               jQuery(".add-room-holder").css("display", "flex");
             } else {
-              console.log("pokazi");
               jQuery(".add-room-mobile").show();
             }
 
