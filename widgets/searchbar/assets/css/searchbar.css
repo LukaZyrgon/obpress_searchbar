@@ -244,11 +244,11 @@ input:focus {
 .hotels_folder {
   padding-left: 20px;
   color: #212529;
-  background-image: url('../../icons/hotel-sign.svg');
+  background-image: url('../../assets/icons/hotel-sign.svg');
   background-repeat: no-repeat;
   background-position-y: center;
   background-position-x: 19px;  
-}
+} 
 
 .hotels_hotel {
   font-weight: normal;
@@ -258,7 +258,7 @@ input:focus {
   overflow: hidden;
   text-overflow: ellipsis;
   padding-right: 10px;
-  background-image: url('../../icons/hotel_v4.svg');
+  background-image: url('../../assets/icons/hotel_v4.svg');
   background-repeat: no-repeat;
   background-position-y: center;
   background-position-x: 42px;  
@@ -318,14 +318,26 @@ input:focus {
   cursor: pointer;
 }
 
+
+.remove-room-mobile {
+  display: none;
+  color: #9C9C9C;
+  float: right;
+  font-size: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  padding-left: 30px;
+  background-image: url(../icons/delete.png);
+  background-repeat: no-repeat;
+  height: 20px;
+  background-position: 0px -4px;
+}
+
 #occupancy_dropdown {
   display: none;
   z-index: 12;
   padding: 20px;
-  /*overflow: visible;*/
-  /*max-height: 530px;*/
   width: 280px;
- /* overflow-x: hidden;*/
   scrollbar-width: thin;
   color: #263237;
   position: absolute;
@@ -880,6 +892,7 @@ select:focus {
   .select-guests-holder {
     background-color: #EEEEEE;
     padding: 20px;
+    clear: both;
   }
 
 
@@ -916,6 +929,8 @@ select:focus {
   #occupancy_dropdown .select-room-title, #occupancy_dropdown .add-room-title {
     font-weight: bold;
     font-size: 14px;
+    float: left;
+    margin-top: 0;
   }
 
   .select-room-buttons {
@@ -1046,7 +1061,6 @@ select:focus {
     border-bottom: 1px solid #000000;
     border-radius: 2px;
     padding: 13.81px 16px 13.19px 16px;
-    font-family: Manrope;
     font-size: 14px;
     font-weight: 600;
     line-height: 1;

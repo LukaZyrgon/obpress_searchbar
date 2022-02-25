@@ -92,6 +92,9 @@
                 <div class="select-room-holder">
                     <div class="select-room" data-room-counter="0">
                         <p class="select-room-title custom-text"><?php _e('Room', 'obpress');?> <span class="select-room-counter">1</span></p>
+
+                        <div class="remove-room-mobile">Remover quarto</div>
+
                         <div class="select-guests-holder">
                             <div class="select-adults-holder">
                                 <div class="select-adults-title">

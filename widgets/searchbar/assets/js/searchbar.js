@@ -177,7 +177,6 @@ jQuery(document).ready(function($){
       if (!hasSubHotels(folders[i].PropertyFolderUID, 0)) continue;
       var folderName = folders[i].PropertyFolderName;
       var cloned = hotels_folder_div.clone();
-      // cloned.attr("data-folder-id",folders[i].PropertyFolderUID);
       cloned.attr("data-folder-id", folders[i].PropertyFolderName);
       cloned.removeAttr("hidden");
       cloned.text(folderName);
@@ -1157,6 +1156,8 @@ jQuery(document).ready(function($){
         jQuery("#hotel_code").val() == "0"
       ) {
         jQuery(".add-room-holder").css("display", "none");
+        jQuery(".add-room-mobile").css("display", "none");
+        jQuery(".remove-room-mobile").css("display", "none");
       } else {
         //TODO!!! Figure out how to get max rooms
         var hotel_id = parseInt($("#hotel_code").val());
@@ -1176,7 +1177,7 @@ jQuery(document).ready(function($){
             if (resolution == 1) {
               jQuery(".add-room-holder").css("display", "flex");
             } else {
-              jQuery(".add-room-mobile").show();
+              jQuery(".add-room-mobile").show(); 
             }
 
             jQuery(".select-room-plus").prop("disabled", false);
@@ -1489,6 +1490,15 @@ jQuery(document).ready(function($){
     if (jQuery(".select-room").length > 1) {
       jQuery(".select-room-minus").prop("disabled", false);
     }
+
+
+    // show remove button on mobile
+    if (resolution > 1 ) {
+       $(".remove-room-mobile").show();
+    }
+
+
+
   });
 
   // Remove a Room button
@@ -1549,7 +1559,9 @@ jQuery(document).ready(function($){
 
     if (jQuery(".select-room").length == 1) {
       jQuery(".select-room-minus").prop("disabled", true);
+      $(".remove-room-mobile").hide();
     }
+
   });
 
   // show and hide child age
@@ -1878,4 +1890,18 @@ jQuery(document).ready(function($){
         }
       }
     });
+
+
+
+    // add and remove room on mobile
+    $(document).on("click", ".add-room-mobile", function() { 
+      $(".add-room-holder .select-room-plus").click();
+    });
+
+    $(document).on("click", ".remove-room-mobile", function() { 
+      $(".add-room-holder .select-room-minus").click();
+    });
+
+
+    
 });
