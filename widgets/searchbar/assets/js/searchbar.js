@@ -548,7 +548,9 @@ jQuery(document).ready(function($){
     data.action = action;
 
     jQuery.post(searchbarAjax.ajaxurl, data, function (response) {
+
       maxRooms = response;
+
       if (maxRooms > 1) {
         // $('.select-room-add').css('display', 'block');
         jQuery(".select-room-plus").prop("disabled", false);
@@ -630,6 +632,14 @@ jQuery(document).ready(function($){
           jQuery(".select-room-minus").prop("disabled", false);
         }
       }
+
+
+
+      if ( typeof adultsParam == "undefined" || adultsParam == null ) {
+        adultsParam = $("#ad").val();
+      }
+
+      console.log(adultsParam);
 
       //If Url comes with a adults param
       if (typeof adultsParam != "undefined" || adultsParam != null) {
@@ -807,6 +817,7 @@ jQuery(document).ready(function($){
         guestNumber = guestNumber + guests[i].adult + guests[i].children;
       }
 
+
       var roomString = "";
       if (numberOfRoomsParam > 1) {
         roomString = jQuery("#guests").attr("data-rooms");
@@ -830,6 +841,8 @@ jQuery(document).ready(function($){
         guestNumber +
         " " +
         guestString;
+
+      console.log(guestsInputString);
 
       jQuery("#guests").attr("value", guestsInputString);
 
@@ -881,6 +894,10 @@ jQuery(document).ready(function($){
     ) {
       numberOfRoomsParam = 1;
     }
+
+    if ( typeof adultsParam == "undefined" || adultsParam == null ) {
+        adultsParam = $("#ad").val();
+      }
 
     if (typeof adultsParam != "undefined" || adultsParam != null) {
       var adultsParamArray = adultsParam.split(",");
@@ -1046,6 +1063,8 @@ jQuery(document).ready(function($){
       guestNumber +
       " " +
       guestString;
+
+      console.log(guestsInputString);
 
     jQuery("#guests").attr("value", guestsInputString);
 
@@ -1590,8 +1609,10 @@ jQuery(document).ready(function($){
     selectInput.find("[data-value='" + age + "']").attr("selected", "");
   });
 
+
   //Apply Button
   jQuery(document).on("click", ".select-occupancy-apply", function () {
+
     var childAgeHolder = jQuery(".select-child-ages-holder");
 
     var adultsInput = jQuery("#ad");
@@ -1729,6 +1750,8 @@ jQuery(document).ready(function($){
     );
     jQuery(".select-occupancy-apply-info-guests").text(guestNumber);
     jQuery(".select-occupancy-apply-info-guests-string").text(guestString);
+
+    console.log(guestsInputString);
 
     jQuery("#guests").attr("value", guestsInputString);
 
