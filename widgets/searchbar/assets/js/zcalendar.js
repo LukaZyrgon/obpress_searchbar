@@ -525,7 +525,7 @@ jQuery(document).ready(function($){
 
 
             var infoInCurrencyString = ' ' + lang + currencySymbol ;
-            info.innerHTML = "<span>" + infoDetailsPrices + "<span class='number-of-adults'> 1 </span><span class='adult-plural'>" + oneAdult + "</span> / 1 " + night + StringIn + " " + 
+            info.innerHTML = "<span>" + infoDetailsPrices + "<span class='number-of-adults'> " + $("#ad").val() + " </span><span class='adult-plural'>" + oneAdult + "</span> / 1 " + night + StringIn + " " + 
             currencySymbol + "</span><span><span class='restrictions-gray-icon'><span>x</span></span>" + restrictedDays + 
             "</span>" ;
             info.classList.add('zc-info-bar');
