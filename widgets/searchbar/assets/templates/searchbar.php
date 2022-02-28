@@ -67,7 +67,7 @@
         <div class="ob-searchbar-guests">
             <p><?php _e('ROOMS AND GUESTS', 'obpress'); ?></p>
             <input type="text" id="guests" data-room="<?php _e('Room', 'obpress'); ?>" data-rooms="<?php _e('Rooms', 'obpress'); ?>" data-guest="<?php _e('Guest', 'obpress'); ?>" data-guests="<?php _e('Guests', 'obpress'); ?>" data-remove-room="<?php _e('Remove room', 'obpress'); ?>" readonly>
-            <input type="hidden" id="ad" name="ad" value="2">
+            <input type="hidden" id="ad" name="ad" value="<?= get_option('calendar_adults') ?>">
             <input type="hidden" id="ch" name="ch" value="">
             <input type="hidden" id="ag" name="ag" value="">
 
@@ -92,6 +92,9 @@
                 <div class="select-room-holder">
                     <div class="select-room" data-room-counter="0">
                         <p class="select-room-title custom-text"><?php _e('Room', 'obpress');?> <span class="select-room-counter">1</span></p>
+
+                        <div class="remove-room-mobile">Remover quarto</div>
+
                         <div class="select-guests-holder">
                             <div class="select-adults-holder">
                                 <div class="select-adults-title">
@@ -190,7 +193,7 @@
                                 <span class="select-occupancy-apply-info-rooms" data-rooms="1">1</span>
                                 <span class="select-occupancy-apply-info-rooms-string">Room</span>
                                 ,
-                                <span class="select-occupancy-apply-info-guests" data-guests="1">1</span>
+                                <span class="select-occupancy-apply-info-guests" data-guests="<?= get_option('calendar_adults') ?>"><?= get_option('calendar_adults') ?></span>
                                 <span class="select-occupancy-apply-info-guests-string">Guest</span>
                         </span>
                 </button>

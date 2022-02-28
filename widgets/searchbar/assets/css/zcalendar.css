@@ -56,14 +56,14 @@
 }
 
 .zc-btn-next {
-	background-image: url(../../icons/chevron-right.svg);
+	background-image: url(../../assets/icons/chevron-right.svg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
 }
 
 .zc-btn-prev {
-	background-image: url(../../icons/chevron-left.svg);
+	background-image: url(../../assets/icons/chevron-left.svg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;

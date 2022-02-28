@@ -177,7 +177,6 @@ jQuery(document).ready(function($){
       if (!hasSubHotels(folders[i].PropertyFolderUID, 0)) continue;
       var folderName = folders[i].PropertyFolderName;
       var cloned = hotels_folder_div.clone();
-      // cloned.attr("data-folder-id",folders[i].PropertyFolderUID);
       cloned.attr("data-folder-id", folders[i].PropertyFolderName);
       cloned.removeAttr("hidden");
       cloned.text(folderName);
@@ -549,7 +548,9 @@ jQuery(document).ready(function($){
     data.action = action;
 
     jQuery.post(searchbarAjax.ajaxurl, data, function (response) {
+
       maxRooms = response;
+
       if (maxRooms > 1) {
         // $('.select-room-add').css('display', 'block');
         jQuery(".select-room-plus").prop("disabled", false);
@@ -631,6 +632,14 @@ jQuery(document).ready(function($){
           jQuery(".select-room-minus").prop("disabled", false);
         }
       }
+
+
+
+      if ( typeof adultsParam == "undefined" || adultsParam == null ) {
+        adultsParam = $("#ad").val();
+      }
+
+      console.log(adultsParam);
 
       //If Url comes with a adults param
       if (typeof adultsParam != "undefined" || adultsParam != null) {
@@ -808,6 +817,7 @@ jQuery(document).ready(function($){
         guestNumber = guestNumber + guests[i].adult + guests[i].children;
       }
 
+
       var roomString = "";
       if (numberOfRoomsParam > 1) {
         roomString = jQuery("#guests").attr("data-rooms");
@@ -831,6 +841,8 @@ jQuery(document).ready(function($){
         guestNumber +
         " " +
         guestString;
+
+      console.log(guestsInputString);
 
       jQuery("#guests").attr("value", guestsInputString);
 
@@ -882,6 +894,10 @@ jQuery(document).ready(function($){
     ) {
       numberOfRoomsParam = 1;
     }
+
+    if ( typeof adultsParam == "undefined" || adultsParam == null ) {
+        adultsParam = $("#ad").val();
+      }
 
     if (typeof adultsParam != "undefined" || adultsParam != null) {
       var adultsParamArray = adultsParam.split(",");
@@ -1048,6 +1064,8 @@ jQuery(document).ready(function($){
       " " +
       guestString;
 
+      console.log(guestsInputString);
+
     jQuery("#guests").attr("value", guestsInputString);
 
     jQuery(".select-occupancy-apply-info-rooms").attr(
@@ -1157,6 +1175,8 @@ jQuery(document).ready(function($){
         jQuery("#hotel_code").val() == "0"
       ) {
         jQuery(".add-room-holder").css("display", "none");
+        jQuery(".add-room-mobile").css("display", "none");
+        jQuery(".remove-room-mobile").css("display", "none");
       } else {
         //TODO!!! Figure out how to get max rooms
         var hotel_id = parseInt($("#hotel_code").val());
@@ -1176,7 +1196,7 @@ jQuery(document).ready(function($){
             if (resolution == 1) {
               jQuery(".add-room-holder").css("display", "flex");
             } else {
-              jQuery(".add-room-mobile").show();
+              jQuery(".add-room-mobile").show(); 
             }
 
             jQuery(".select-room-plus").prop("disabled", false);
@@ -1489,6 +1509,15 @@ jQuery(document).ready(function($){
     if (jQuery(".select-room").length > 1) {
       jQuery(".select-room-minus").prop("disabled", false);
     }
+
+
+    // show remove button on mobile
+    if (resolution > 1 ) {
+       $(".remove-room-mobile").show();
+    }
+
+
+
   });
 
   // Remove a Room button
@@ -1549,7 +1578,9 @@ jQuery(document).ready(function($){
 
     if (jQuery(".select-room").length == 1) {
       jQuery(".select-room-minus").prop("disabled", true);
+      $(".remove-room-mobile").hide();
     }
+
   });
 
   // show and hide child age
@@ -1578,8 +1609,10 @@ jQuery(document).ready(function($){
     selectInput.find("[data-value='" + age + "']").attr("selected", "");
   });
 
+
   //Apply Button
   jQuery(document).on("click", ".select-occupancy-apply", function () {
+
     var childAgeHolder = jQuery(".select-child-ages-holder");
 
     var adultsInput = jQuery("#ad");
@@ -1717,6 +1750,8 @@ jQuery(document).ready(function($){
     );
     jQuery(".select-occupancy-apply-info-guests").text(guestNumber);
     jQuery(".select-occupancy-apply-info-guests-string").text(guestString);
+
+    console.log(guestsInputString);
 
     jQuery("#guests").attr("value", guestsInputString);
 
@@ -1878,4 +1913,18 @@ jQuery(document).ready(function($){
         }
       }
     });
+
+
+
+    // add and remove room on mobile
+    $(document).on("click", ".add-room-mobile", function() { 
+      $(".add-room-holder .select-room-plus").click();
+    });
+
+    $(document).on("click", ".remove-room-mobile", function() { 
+      $(".add-room-holder .select-room-minus").click();
+    });
+
+
+    
 });
