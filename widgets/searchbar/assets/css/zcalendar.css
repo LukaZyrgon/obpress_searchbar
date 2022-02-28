@@ -578,12 +578,11 @@
 	.zcalendar{
 		position: fixed;
 		top: 0px;    
-	    right: 0px;
-	    left: 0px;	
+	    left: 0px!important;	
 	    width:100%;
 	    z-index: 100;
 	    margin-top:0px;
-	    height: 100vh;
+	    min-height: 100vh;
 	}
 
 	.zc-info-bar {
@@ -696,7 +695,8 @@
 		overflow-y: scroll;
 		z-index: 100;
 		background-color: #fff;
-
+		scrollbar-color: #000 #E8E8E8;
+		scrollbar-width: thin;
 	}
 	
 	.ob-zcalendar-top {

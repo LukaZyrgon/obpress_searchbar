@@ -24,7 +24,7 @@
             id="hotels" class="<?php
             if (!empty(get_option('hotel_id'))) {
                 echo 'single-hotel';
-            } ?>" spellcheck="false" autocomplete="off">
+            } ?>" spellcheck="false" autocomplete="off" readonly>
 
 
 
@@ -42,14 +42,14 @@
                 <div class="obpress-mobile-search-hotels-input-holder">
                     <input class="obpress-mobile-search-hotels-input" type="text" placeholder="Digite o nome ou cidade do hotel" id="search-hotels-input">
                 </div>
-                <div class="hotels_all custom-bg custom-text" data-id="0"><?php _e('All Hotels', 'obpress'); ?></div>
+               <!--  <div class="hotels_all custom-bg custom-text" data-id="0"><?php _e('All Hotels', 'obpress'); ?></div> -->
                 <div class="hotels_folder custom-bg custom-text" hidden></div>
                 <div class="hotels_hotel custom-bg custom-text" data-id="" hidden></div>
             </div>
 
         </div>
         <div class="ob-searchbar-calendar">
-            <p><?php _e('DATES OF STAY', 'obpress'); ?></p>
+            <p><?php _e('Dates of stay', 'obpress'); ?></p>
             <input class="calendarToggle" type="text" id="calendar_dates" value="<?php echo $CheckInShow ?? date("d/m/Y") ?> - <?php echo $CheckOutShow ?? date("d/m/Y", strtotime("+1 day")) ?>"  readonly>
             <div class="ob-mobile-searchbar-calendar-holder">
                 <div class="ob-mobile-searchbar-calendar">
@@ -65,7 +65,7 @@
             <input class="calendarToggle" type="hidden" id="date_to" name="CheckOut" value="<?php echo $CheckOut ?? date("dmy", strtotime("+1 day")) ?>">            
         </div>
         <div class="ob-searchbar-guests">
-            <p><?php _e('ROOMS AND GUESTS', 'obpress'); ?></p>
+            <p><?php _e('Rooms and guests', 'obpress'); ?></p>
             <input type="text" id="guests" data-room="<?php _e('Room', 'obpress'); ?>" data-rooms="<?php _e('Rooms', 'obpress'); ?>" data-guest="<?php _e('Guest', 'obpress'); ?>" data-guests="<?php _e('Guests', 'obpress'); ?>" data-remove-room="<?php _e('Remove room', 'obpress'); ?>" readonly>
             <input type="hidden" id="ad" name="ad" value="<?= get_option('calendar_adults') ?>">
             <input type="hidden" id="ch" name="ch" value="">
@@ -77,14 +77,14 @@
                     <div class="select-room-buttons">
                         <button class="select-button select-button-minus select-room-minus" type="button" disabled>
 
-                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line>
+                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line>
                              </svg>
                             
                         </button>
                         <span class="select-value select-room-value">1</span>
                         <button class="select-button select-button-plus select-room-plus" type="button">
 
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                             
                         </button>
                     </div>
@@ -104,14 +104,14 @@
                                 <div class="select-adults-buttons">
                                     <button class="select-button select-button-minus select-adult-minus" type="button" disabled>
                                         
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line>
                                         </svg>
 
                                     </button>
                                     <span class="select-value select-adults-value">1</span>
                                     <button class="select-button select-button-plus select-adult-plus" type="button">
 
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
 
                                     </button>
                                 </div>
@@ -133,14 +133,14 @@
                                 <div class="select-child-buttons">
                                     <button class="select-button select-button-minus select-child-minus" type="button" disabled>
                                         
-                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line>
+                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line>
                                         </svg>
 
                                     </button>
                                     <span class="select-value select-child-value">0</span>
                                     <button class="select-button select-button-plus select-child-plus" type="button">
 
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                                         
                                     </button>
                                 </div>
@@ -204,7 +204,7 @@
 
 
             <div class="ob-searchbar-promo">
-                <p><?php _e('I HAVE A CODE', 'obpress'); ?></p>
+                <p><?php _e('I have a code', 'obpress'); ?></p>
                 <input type="text" id="promo_code" value="" placeholder="Escolha o tipo" readonly>
                 <div class="material-check custom-checkbox-holde ob-mobile-i-have-a-code">
                     <div class="mdc-touch-target-wrapper">

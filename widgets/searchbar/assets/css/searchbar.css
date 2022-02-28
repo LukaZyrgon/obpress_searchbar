@@ -127,7 +127,15 @@ button:disabled {
 }
 
 .ob-searchbar-hotel input , .ob-searchbar-calendar input , .ob-searchbar-guests input {
-    background-image: url(../../icons/down.png);
+    background-image: url(../../assets/icons/down.png);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+    cursor: pointer;
+}
+
+#promo_code {
+    background-image: url(../../assets/icons/down.png);
     background-repeat: no-repeat;
     background-position-x: right;
     background-position-y: center;
@@ -208,6 +216,7 @@ input:focus {
   display: none;
   top: 100px;
   left: 0px;
+  scrollbar-width: thin;
 }
 
 .hotels_all,
