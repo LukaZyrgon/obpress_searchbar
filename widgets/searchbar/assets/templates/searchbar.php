@@ -67,7 +67,7 @@
         <div class="ob-searchbar-guests">
             <p><?php _e('ROOMS AND GUESTS', 'obpress'); ?></p>
             <input type="text" id="guests" data-room="<?php _e('Room', 'obpress'); ?>" data-rooms="<?php _e('Rooms', 'obpress'); ?>" data-guest="<?php _e('Guest', 'obpress'); ?>" data-guests="<?php _e('Guests', 'obpress'); ?>" data-remove-room="<?php _e('Remove room', 'obpress'); ?>" readonly>
-            <input type="hidden" id="ad" name="ad" value="1">
+            <input type="hidden" id="ad" name="ad" value="2">
             <input type="hidden" id="ch" name="ch" value="">
             <input type="hidden" id="ag" name="ag" value="">
 

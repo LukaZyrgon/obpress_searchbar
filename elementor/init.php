@@ -119,13 +119,16 @@ final class OBPress_Widget {
 	}
 
 	public function widget_scripts() {
+		
 		wp_register_script( 'jquery_js',  plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/vendor/jquery.min.js') );
 		wp_register_script( 'moment_min_js', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/vendor/moment.min.js'));
 		wp_register_script( 'moment_tz_js', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/vendor/moment.tz.js'));
 
-		
-		wp_register_script( 'searchbar_js',  plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/searchbar.js') );
-		wp_register_script( 'zcalendar_js', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/zcalendar.js'));
+		// call this files only on homepage
+		if ( is_home() || is_front_page()  == true ) {
+			wp_register_script( 'searchbar_js',  plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/searchbar.js') );
+			wp_register_script( 'zcalendar_js', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/zcalendar.js'));
+		}
 
 
 		wp_enqueue_script('jquery_js');

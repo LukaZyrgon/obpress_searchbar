@@ -322,16 +322,15 @@ input:focus {
   display: none;
   z-index: 12;
   padding: 20px;
-  /*overflow: visible;*/
-  /*max-height: 530px;*/
   width: 280px;
- /* overflow-x: hidden;*/
+  overflow-x: hidden;
   scrollbar-width: thin;
   color: #263237;
   position: absolute;
   top: 100px;
   left: 0px;
   background-color: #F5F5F5;
+  max-height: 530px;
 }
 
 #occupancy_dropdown::-webkit-scrollbar {
@@ -397,9 +396,14 @@ input:focus {
 
 .select-adults-title,
 .select-child-title {
-  font-size: 16px;
+  font-size: 14px;
   float: left;
   width: 50%;
+}
+
+.select-room-title {
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .select-child-title {
@@ -618,6 +622,8 @@ select:focus {
 .add-room-title {
   float: left;
   text-transform: lowercase;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .add-room-title::first-letter {

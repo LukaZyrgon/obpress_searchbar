@@ -10,7 +10,7 @@ function enqueue_ajax_scripts(){
         'ajaxurl' => admin_url('admin-ajax.php')
     ));
 
-     wp_enqueue_script('zcalendar-script', WP_PLUGIN_DIR . '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/zcalendar.js', array('jquery'), false, true);
+    wp_enqueue_script('zcalendar-script', WP_PLUGIN_DIR . '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/zcalendar.js', array('jquery'), false, true);
     wp_localize_script('zcalendar-script', 'zcalendarAjax', array(
         'ajaxurl' => admin_url('admin-ajax.php')
     ));
