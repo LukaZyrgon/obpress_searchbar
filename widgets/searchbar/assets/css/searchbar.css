@@ -869,7 +869,7 @@ select:focus {
 
   #hotels {
     background-image: url('../../assets/icons/hotel-sign.svg');
-    background-position-x: left -35px;
+    background-position: -36px center;
   }
 
   .ob-searchbar-hotel, .ob-searchbar-calendar, .ob-searchbar-guests, .ob-searchbar-promo {
