@@ -161,16 +161,15 @@
 
                                         </div>
 
-                                        <select class="select-child-ages-input-clone">
-                                                <?php for ($i = 0; $i < 18; $i++) : ?>
-                                                    <option data-value="<?= $i; ?>" <?php if ($i == 0) { echo "selected";} ?>><?= $i; ?></option>
-                                                <?php endfor; ?>
-                                        </select>
-
                                     </div>
 
-                                   
+                                    <select class="select-child-ages-input-clone">
+                                        <?php for ($i = 0; $i < 18; $i++) : ?>
+                                            <option data-value="<?= $i; ?>" <?php if ($i == 0) { echo "selected";} ?>><?= $i; ?></option>
+                                        <?php endfor; ?>
+                                    </select>
 
+                                   
                                     <div class="child-ages-input">
                                         
                                     </div>

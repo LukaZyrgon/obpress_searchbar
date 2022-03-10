@@ -4,6 +4,7 @@ jQuery(document).ready(function($){
     jQuery(".ob-searchbar").attr("data-hotel-folders")
   );
 
+
   function getUrlParam(param) {
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split("&");
@@ -104,6 +105,7 @@ jQuery(document).ready(function($){
         hotels.push(onlyHotels[i]);
       }
     }
+
     return hotels;
   }
 
@@ -117,6 +119,7 @@ jQuery(document).ready(function($){
         folders.push(onlyFolders[i]);
       }
     }
+
     return folders;
   }
 
@@ -130,6 +133,7 @@ jQuery(document).ready(function($){
         folders.push(onlyFolders[i]);
       }
     }
+
     return folders;
   }
 
@@ -152,6 +156,7 @@ jQuery(document).ready(function($){
     .eq(0);
 
   function getFolderChildren(UID, level) {
+
     if (UID == null) {
       UID = -1;
     }
@@ -162,6 +167,7 @@ jQuery(document).ready(function($){
     }
 
     var folders = [];
+
     if (UID == -1) {
       //starting
       folders = getFoldersWithoutParents();
@@ -170,6 +176,7 @@ jQuery(document).ready(function($){
     }
 
     var hotels = getHotelsForFolder(UID);
+
 
     //list folders
     for (var i = 0; i < folders.length; i++) {
@@ -1585,27 +1592,27 @@ jQuery(document).ready(function($){
 
   // show and hide child age
   jQuery(document).on("click", ".age-picker", function () {
-    if ($(this).find(".age-picker-options").is(":visible")) {
-      $(".age-picker-options").hide();
 
-      $(this).find(".age-picker-options").hide();
-    } else {
-      $(".age-picker-options").hide();
+    if (resolution == 1) {
 
-      $(this).find(".age-picker-options").show();
-    }
+       if ($(this).find(".age-picker-options").is(":visible")) {
+          $(".age-picker-options").hide();
+        } else {
+          $(".age-picker-options").hide();
+          $(this).closest(".select-child-ages").find(".age-picker-options").show();
+        }
+
+    } 
+
   });
+  
 
   // choose age
   jQuery(document).on("click", ".age-picker-options div", function () {
     var age = $(this).data("age");
-
     $(this).parent().parent().find(".age-picker-value").text(age);
-
     var selectInput = $(this).parent().next();
-
     selectInput.children().removeAttr("selected");
-
     selectInput.find("[data-value='" + age + "']").attr("selected", "");
   });
 

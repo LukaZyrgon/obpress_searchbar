@@ -74,8 +74,12 @@ button:disabled {
   background-color: #F5F5F5;
 }
 
-.opened #hotels , .opened #calendar_dates , .opened #guests , .opened #promo_code{
+.opened #hotels , .opened #calendar_dates , .opened #guests , .opened #promo_code {
   background-color: #F5F5F5;
+}
+
+[hidden] {
+  display: none !important;
 }
 
 .ob-searchbar input:not(#hotels):hover {
@@ -501,7 +505,7 @@ input:focus {
 
 
 .age-picker {
-     width: 100%;
+    width: 100%;
     height: 45px;
     border: 1px solid #273240;
     border-radius: 0px;
@@ -518,7 +522,7 @@ input:focus {
     box-shadow: 0px 3px 6px #00000029;
     border: 1px solid #273240;
     font-size: 16px;
-    background-image: url('../../icons/up.png') , url('../../icons/down.png');
+    background-image: url('../../assets/icons/up.png') , url('../../assets/icons/down.png');
     background-repeat: no-repeat;
     background-position: 96% 24%, 96% 79%;
     padding: 11px 10px;
@@ -529,7 +533,7 @@ input:focus {
 .age-picker-options {
   display: none;
   position: absolute;
-  top: 55px;
+  top: 43px;
   left: 0px;
   background-color: #F5F5F5;
   width: 180px;
@@ -539,6 +543,7 @@ input:focus {
   overflow-y: scroll;
   scrollbar-color: #000 #E8E8E8;
   scrollbar-width: thin !important;
+  width: 100%;
 }
 
 .age-picker-options div { 
@@ -772,7 +777,7 @@ select:focus {
     border: unset;
     height: 52px;
   }
-  
+
 
   .hotels_dropdown {
     width: 100%;
@@ -871,6 +876,18 @@ select:focus {
     background-image: url('../../assets/icons/hotel-sign.svg');
     background-position: -36px center;
   }
+
+
+  /* prevent zooming on iPhone*/
+  #hotels , #check_in_mobile, #check_out_mobile {
+    width: 114%;
+    transform: scale(0.875);
+    position: relative;
+    left: -7%;
+    height: 58px;
+    font-size: 16px;
+  }
+  
 
   .ob-searchbar-hotel, .ob-searchbar-calendar, .ob-searchbar-guests, .ob-searchbar-promo {
     padding: 22px 0px 0px 0px!important;
@@ -997,10 +1014,10 @@ select:focus {
   }
 
   .age-picker {
+    display: none;
     width: 116px;
     height: 36px;
     padding: 0px 0px 0px 13px;
-    display: flex;
     align-items: center;
     font-size: 14px;
     box-shadow: none;
@@ -1023,6 +1040,19 @@ select:focus {
     background-color: #000000!important;
     border-color: #000000!important;
   }*/
+
+  .select-child-ages-input, .select-child-ages-input-clone {
+    display: block;
+    width: 116px;
+    height: 36px;
+    padding: 0px 0px 0px 13px;
+    align-items: center;
+    font-size: 14px;
+    box-shadow: none;
+    background-image: none;
+    padding-left: 2px;
+    border-radius: 0px;
+  }
 
 
   .ob-searchbar-promo {
@@ -1132,3 +1162,5 @@ select:focus {
   }
 
 }
+
+
