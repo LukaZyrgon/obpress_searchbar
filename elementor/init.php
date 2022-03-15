@@ -97,10 +97,6 @@ final class OBPress_Widget {
         
         add_action('elementor/widgets/widgets_registered', [ $this, 'init_widgets']);
 
-        add_action('elementor/frontend/after_enqueue_styles', [ $this, 'widget_styles']);
-
-		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'widget_scripts' ] );
-
         add_action('elementor/elements/categories_registered', [ $this, 'add_elementor_widget_categories']);
         
 		// add_action( 'elementor/controls/controls_registered', [ $this, 'init_controls' ] );
@@ -118,35 +114,6 @@ final class OBPress_Widget {
 
 	}
 
-	public function widget_scripts() {
-
-		wp_register_script( 'jquery_js',  plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/vendor/jquery.min.js') );
-		wp_register_script( 'moment_min_js', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/vendor/moment.min.js'));
-		wp_register_script( 'moment_tz_js', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/vendor/moment.tz.js'));
-
-
-		if ( is_home() || is_front_page()  == true ) {
-			wp_register_script( 'searchbar_js',  plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/searchbar.js') );
-			wp_register_script( 'zcalendar_js', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/zcalendar.js'));
-		}
-
-
-		wp_enqueue_script('jquery_js');
-		wp_enqueue_script('moment_min_js');
-		wp_enqueue_script('moment_tz_js');
-
-		wp_enqueue_script('searchbar_js');
-		wp_enqueue_script('zcalendar_js');
-		
-	}
-
-	public function widget_styles() {
-		wp_register_style( 'zcalendar', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/css/zcalendar.css') );
-		wp_register_style( 'searchbar', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/css/searchbar.css') );
-        
-        wp_enqueue_style('zcalendar');
-        wp_enqueue_style('searchbar');
-	}
 
     function add_elementor_widget_categories( $elements_manager ) {
         $elements_manager->add_category(

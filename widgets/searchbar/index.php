@@ -7,27 +7,30 @@ class Searchbar extends \Elementor\Widget_Base
 
 		parent::__construct($data, $args);
 		
-		wp_register_script( 'moment_min_js', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/vendor/moment.min.js'), array('jquery'), [ 'elementor-frontend' ], '1.0.0', true );
+		wp_register_script( 'moment_plugin_min_js', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/vendor/moment.min.js'));
 
-		wp_register_script( 'moment_tz_js', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/vendor/moment.tz.js'), array('jquery'), [ 'elementor-frontend' ], '1.0.0', true );
+		wp_register_script( 'moment_plugin_tz_js', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/vendor/moment.tz.js'));
 
-		wp_register_script( 'searchbar_js',  plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/searchbar.js'), array('jquery'), [ 'elementor-frontend' ], '1.0.0', true  );
 
-		wp_register_script( 'zcalendar_js', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/zcalendar.js'), array('jquery'), [ 'elementor-frontend' ], '1.0.0', true );
+		wp_register_script( 'searchbar_plugin_js',  plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/searchbar.js'), [ 'elementor-frontend' ], '1.0.0');
 
-		wp_register_style( 'zcalendar_css', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/css/zcalendar.css') );
-		wp_register_style( 'searchbar_css', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/css/searchbar.css') );		
+		// wp_register_style( 'special-offer_css', plugins_url( '/OBPress_SpecialOffers/widget/assets/css/special-offer.css') );        
+
+		wp_register_script( 'zcalendar_plugin_js', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/zcalendar.js'));
+
+		wp_register_style( 'zcalendar_plugin_css', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/css/zcalendar.css') );
+		wp_register_style( 'searchbar_plugin_css', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/css/searchbar.css') );		
 
 	}
 	
 	public function get_script_depends()
 	{
-		return ['moment_min_js, moment_tz_js, searchbar_js, zcalendar_js'];
+		return ['moment_plugin_min_js', 'moment_plugin_tz_js', 'searchbar_plugin_js', 'zcalendar_plugin_js'];
 	}
 
 	public function get_style_depends()
 	{
-		return ['zcalendar_css, searchbar_css'];
+		return ['zcalendar_plugin_css', 'searchbar_plugin_css'];
 	}
 
 	public function get_name()
