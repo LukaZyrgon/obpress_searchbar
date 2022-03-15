@@ -42,7 +42,7 @@
                 <div class="obpress-mobile-search-hotels-input-holder">
                     <input class="obpress-mobile-search-hotels-input" type="text" placeholder="Digite o nome ou cidade do hotel" id="search-hotels-input">
                 </div>
-               <!--  <div class="hotels_all custom-bg custom-text" data-id="0"><?php _e('All Hotels', 'obpress'); ?></div> -->
+                <div class="hotels_all custom-bg custom-text" data-id="0"><?php _e('All Hotels', 'obpress'); ?></div>
                 <div class="hotels_folder custom-bg custom-text" hidden></div>
                 <div class="hotels_hotel custom-bg custom-text" data-id="" hidden></div>
             </div>
