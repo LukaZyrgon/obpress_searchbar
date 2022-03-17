@@ -12,7 +12,7 @@ class Searchbar extends \Elementor\Widget_Base
 		wp_register_script( 'moment_plugin_tz_js', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/vendor/moment.tz.js'));
 
 
-		wp_register_script( 'searchbar_plugin_js',  plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/searchbar.js'), [ 'elementor-frontend' ], '1.0.0');
+		wp_register_script( 'searchbar_plugin_js',  plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/searchbar.js'));
 
 		// wp_register_style( 'special-offer_css', plugins_url( '/OBPress_SpecialOffers/widget/assets/css/special-offer.css') );        
 
@@ -40,7 +40,7 @@ class Searchbar extends \Elementor\Widget_Base
 
 	public function get_title()
 	{
-		return __('Searchbar', 'plugin-name');
+		return __('Searchbar', 'OBPress_SearchBarPlugin');
 	}
 
 	public function get_icon()
@@ -59,7 +59,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'content_section',
 			[
-				'label' => __( 'Content', 'plugin-name' ),
+				'label' => __( 'Content', 'OBPress_SearchBarPlugin' ),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -82,7 +82,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'layout_section',
 			[
-				'label' => __( 'Layout', 'plugin-name' ),
+				'label' => __( 'Layout', 'OBPress_SearchBarPlugin' ),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -133,9 +133,9 @@ class Searchbar extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'left',
 				'options' => [
-					'left'  => __( 'Left', 'plugin-domain' ),
-					'center' => __( 'Center', 'plugin-domain' ),
-					'right' => __( 'Right', 'plugin-domain' ),
+					'left'  => __( 'Left', 'OBPress_SearchBarPlugin' ),
+					'center' => __( 'Center', 'OBPress_SearchBarPlugin' ),
+					'right' => __( 'Right', 'OBPress_SearchBarPlugin' ),
 				],
 			]
 		);
