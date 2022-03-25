@@ -4,7 +4,7 @@
   Plugin uri: www.zyrgon.net
   Text Domain: OBPress_SearchBarPlugin
   Description: Widgets to OBPress
-  Version: 0.1.0
+  Version: 0.1.1
   Author: Zyrgon
   Author uri: www.zyrgon.net
   License: GPlv2 or Later
