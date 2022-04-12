@@ -40,7 +40,7 @@ class Searchbar extends \Elementor\Widget_Base
 
 	public function get_title()
 	{
-		return __('Searchbar', 'OBPress_SearchBarPlugin');
+		return __('Searchbar', 'OBPress_General_Widgets');
 	}
 
 	public function get_icon()
@@ -59,7 +59,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'content_section',
 			[
-				'label' => __( 'Content', 'OBPress_SearchBarPlugin' ),
+				'label' => __( 'Content', 'OBPress_General_Widgets' ),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -67,10 +67,10 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_promo_show',
 			[
-				'label' => __( 'Toggle Promo Code Field', 'OBPress_SearchBarPlugin' ),
+				'label' => __( 'Toggle Promo Code Field', 'OBPress_General_Widgets' ),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => __( 'Show', 'OBPress_SearchBarPlugin' ),
-				'label_off' => __( 'Hide', 'OBPress_SearchBarPlugin' ),
+				'label_on' => __( 'Show', 'OBPress_General_Widgets' ),
+				'label_off' => __( 'Hide', 'OBPress_General_Widgets' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -82,7 +82,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'layout_section',
 			[
-				'label' => __( 'Layout', 'OBPress_SearchBarPlugin' ),
+				'label' => __( 'Layout', 'OBPress_General_Widgets' ),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -90,10 +90,10 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_vertical_view',
 			[
-				'label' => __( 'Toggle Vertical View', 'OBPress_SearchBarPlugin' ),
+				'label' => __( 'Toggle Vertical View', 'OBPress_General_Widgets' ),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => __( 'On', 'OBPress_SearchBarPlugin' ),
-				'label_off' => __( 'Off', 'OBPress_SearchBarPlugin' ),
+				'label_on' => __( 'On', 'OBPress_General_Widgets' ),
+				'label_off' => __( 'Off', 'OBPress_General_Widgets' ),
 				'return_value' => 'yes',
 				'default' => 'no',
 			]
@@ -102,7 +102,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_width',
 			[
-				'label' => __( 'Searchbar Width', 'OBPress_SearchBarPlugin' ),
+				'label' => __( 'Searchbar Width', 'OBPress_General_Widgets' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -129,13 +129,13 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_alignment',
 			[
-				'label' => __( 'Searchbar Alignment', 'OBPress_SearchBarPlugin' ),
+				'label' => __( 'Searchbar Alignment', 'OBPress_General_Widgets' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'left',
 				'options' => [
-					'left'  => __( 'Left', 'OBPress_SearchBarPlugin' ),
-					'center' => __( 'Center', 'OBPress_SearchBarPlugin' ),
-					'right' => __( 'Right', 'OBPress_SearchBarPlugin' ),
+					'left'  => __( 'Left', 'OBPress_General_Widgets' ),
+					'center' => __( 'Center', 'OBPress_General_Widgets' ),
+					'right' => __( 'Right', 'OBPress_General_Widgets' ),
 				],
 			]
 		);
@@ -143,7 +143,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_padding',
 			[
-				'label' => __( 'Searchbar Padding', 'OBPress_SearchBarPlugin' ),
+				'label' => __( 'Searchbar Padding', 'OBPress_General_Widgets' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'default' => [
 					'top' => '0',
@@ -162,7 +162,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_input_padding',
 			[
-				'label' => __( 'Input Field Padding', 'OBPress_SearchBarPlugin' ),
+				'label' => __( 'Input Field Padding', 'OBPress_General_Widgets' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'default' => [
 					'top' => '9',
@@ -181,7 +181,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_submit_button_padding',
 			[
-				'label' => __( 'Submit Button Padding', 'OBPress_SearchBarPlugin' ),
+				'label' => __( 'Submit Button Padding', 'OBPress_General_Widgets' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'default' => [
 					'top' => '30',
@@ -200,7 +200,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_button_width',
 			[
-				'label' => __( 'Searchbar Button Width', 'OBPress_SearchBarPlugin' ),
+				'label' => __( 'Searchbar Button Width', 'OBPress_General_Widgets' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -229,7 +229,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'color_section',
 			[
-				'label' => __('Colors', 'OBPress_SearchBarPlugin'),
+				'label' => __('Colors', 'OBPress_General_Widgets'),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -237,7 +237,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_background_color',
 			[
-				'label' => __('Background Color', 'OBPress_SearchBarPlugin'),
+				'label' => __('Background Color', 'OBPress_General_Widgets'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
 				'default' => '#fff',
@@ -250,7 +250,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_input_background_color',
 			[
-				'label' => __('Input Background Color', 'OBPress_SearchBarPlugin'),
+				'label' => __('Input Background Color', 'OBPress_General_Widgets'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
 				'default' => '#fff',
@@ -263,7 +263,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_input_title_color',
 			[
-				'label' => __('Input Title Color', 'OBPress_SearchBarPlugin'),
+				'label' => __('Input Title Color', 'OBPress_General_Widgets'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
 				'default' => '#000',
@@ -276,7 +276,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_input_placeholder_color',
 			[
-				'label' => __('Input Placeholder Color', 'OBPress_SearchBarPlugin'),
+				'label' => __('Input Placeholder Color', 'OBPress_General_Widgets'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
 				'default' => '#000',
@@ -289,7 +289,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_dropdown_background_color',
 			[
-				'label' => __('Dropdowns Background Color', 'OBPress_SearchBarPlugin'),
+				'label' => __('Dropdowns Background Color', 'OBPress_General_Widgets'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
 				'selectors' => [
@@ -301,7 +301,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_dropdown_text_color',
 			[
-				'label' => __('Dropdowns Text Color', 'OBPress_SearchBarPlugin'),
+				'label' => __('Dropdowns Text Color', 'OBPress_General_Widgets'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
 				'selectors' => [
@@ -315,7 +315,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'typography_section',
 			[
-				'label' => __('Typography', 'OBPress_SearchBarPlugin'),
+				'label' => __('Typography', 'OBPress_General_Widgets'),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -324,7 +324,7 @@ class Searchbar extends \Elementor\Widget_Base
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'title_typography',
-				'label' => __( 'Input Title', 'OBPress_SearchBarPlugin' ),
+				'label' => __( 'Input Title', 'OBPress_General_Widgets' ),
 				'selector' => '.ob-searchbar-hotel > p, .ob-searchbar-calendar > p, .ob-searchbar-guests > p, .ob-searchbar-promo > p',
 			]
 		);
@@ -333,7 +333,7 @@ class Searchbar extends \Elementor\Widget_Base
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'input_typography',
-				'label' => __( 'Input Field', 'OBPress_SearchBarPlugin' ),
+				'label' => __( 'Input Field', 'OBPress_General_Widgets' ),
 				'selector' => '.ob-searchbar-calendar input, .ob-searchbar-guests input, .ob-searchbar-promo input, .ob-searchbar-hotel input',
 			]
 		);
@@ -342,7 +342,7 @@ class Searchbar extends \Elementor\Widget_Base
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'dropdowns_typography',
-				'label' => __( 'Dropdowns', 'OBPress_SearchBarPlugin' ),
+				'label' => __( 'Dropdowns', 'OBPress_General_Widgets' ),
 				'selector' => '.hotels_dropdown, #occupancy_dropdown, #promo_code_dropdown',
 			]
 		);
@@ -352,7 +352,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'buttons_section',
 			[
-				'label' => __('Buttons', 'OBPress_SearchBarPlugin'),
+				'label' => __('Buttons', 'OBPress_General_Widgets'),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -360,7 +360,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_button_background_color',
 			[
-				'label' => __('Button Background Color', 'OBPress_SearchBarPlugin'),
+				'label' => __('Button Background Color', 'OBPress_General_Widgets'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
 				'default' => '#000',
@@ -373,7 +373,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_button_text_color',
 			[
-				'label' => __('Button Text Color', 'OBPress_SearchBarPlugin'),
+				'label' => __('Button Text Color', 'OBPress_General_Widgets'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
 				'default' => '#fff',
@@ -387,7 +387,7 @@ class Searchbar extends \Elementor\Widget_Base
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'buttons_typography',
-				'label' => __( 'Typography', 'OBPress_SearchBarPlugin' ),
+				'label' => __( 'Typography', 'OBPress_General_Widgets' ),
 				'selector' => '.ob-searchbar-submit, .select-occupancy-apply, #promo_code_apply',
 			]
 		);
@@ -396,7 +396,7 @@ class Searchbar extends \Elementor\Widget_Base
 			\Elementor\Group_Control_Border::get_type(),
 			[
 				'name' => 'border',
-				'label' => __( 'Border', 'OBPress_SearchBarPlugin' ),
+				'label' => __( 'Border', 'OBPress_General_Widgets' ),
 				'selector' => '.ob-searchbar-submit',
 			]
 		);
@@ -407,7 +407,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'calendar_section',
 			[
-				'label' => __('Calendar', 'OBPress_SearchBarPlugin'),
+				'label' => __('Calendar', 'OBPress_General_Widgets'),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -415,7 +415,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_calendar_background_color',
 			[
-				'label' => __('Calendar Background Color', 'OBPress_SearchBarPlugin'),
+				'label' => __('Calendar Background Color', 'OBPress_General_Widgets'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
 				'default' => '#fff',
@@ -428,7 +428,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_calendar_text_color',
 			[
-				'label' => __('Calendar Text Color', 'OBPress_SearchBarPlugin'),
+				'label' => __('Calendar Text Color', 'OBPress_General_Widgets'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
 				'default' => '#000',
@@ -441,7 +441,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_calendar_in_range_background',
 			[
-				'label' => __('Selected Dates Range Background', 'OBPress_SearchBarPlugin'),
+				'label' => __('Selected Dates Range Background', 'OBPress_General_Widgets'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
 				'default' => '#d9d1c1',
@@ -454,7 +454,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_calendar_dates_background',
 			[
-				'label' => __('Selected Dates Background', 'OBPress_SearchBarPlugin'),
+				'label' => __('Selected Dates Background', 'OBPress_General_Widgets'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
 				'default' => '#BEAD8E',
@@ -467,10 +467,10 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_calendar_show_tooltip',
 			[
-				'label' => __( 'Toggle Calendar Tooltip', 'OBPress_SearchBarPlugin' ),
+				'label' => __( 'Toggle Calendar Tooltip', 'OBPress_General_Widgets' ),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => __( 'Show', 'OBPress_SearchBarPlugin' ),
-				'label_off' => __( 'Hide', 'OBPress_SearchBarPlugin' ),
+				'label_on' => __( 'Show', 'OBPress_General_Widgets' ),
+				'label_off' => __( 'Hide', 'OBPress_General_Widgets' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -479,7 +479,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_calendar_tooltip_background_color',
 			[
-				'label' => __('Tooltip Background Color', 'OBPress_SearchBarPlugin'),
+				'label' => __('Tooltip Background Color', 'OBPress_General_Widgets'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
 				'default' => '#eee',
@@ -492,7 +492,7 @@ class Searchbar extends \Elementor\Widget_Base
 		$this->add_control(
 			'obpress_searchbar_calendar_tooltip_text_color',
 			[
-				'label' => __('Tooltip Text Color', 'OBPress_SearchBarPlugin'),
+				'label' => __('Tooltip Text Color', 'OBPress_General_Widgets'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
 				'default' => '#3c3c3c',
@@ -506,7 +506,7 @@ class Searchbar extends \Elementor\Widget_Base
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'calendar_typography',
-				'label' => __( 'Calendar Typography', 'OBPress_SearchBarPlugin' ),
+				'label' => __( 'Calendar Typography', 'OBPress_General_Widgets' ),
 				'selector' => '.zcalendar',
 			]
 		);
