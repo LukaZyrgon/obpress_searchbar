@@ -365,15 +365,10 @@ jQuery(document).ready(function($){
 
             //change form action
             if (q == "" || q == "0") {
-      
               $(".searchbar-form").attr("action", "/chain-results");
-
             } else {
-
                $(".searchbar-form").attr("action", "/hotel-results");
-
             }
-
 
             if (q != 0) {
               // check if hotel is yesterday related to UTC, and declare it in varible sameDayAsUTC
@@ -1735,13 +1730,26 @@ jQuery(document).ready(function($){
 
         requestForNewOccupancy  = false ;
 
+        // find days for fetch
+          if (resolution == 1) {
 
-          //save all dates
-          var firstM = moment(unix, "X").startOf("day").add(12, "hours");
-          var first = firstM.format("YYYY-MM-DD");
-  
-          var secondM = firstM.clone().add(2, "months").endOf("month").startOf("day").add(12, "hours");
-          var second = secondM.format("YYYY-MM-DD");
+              var firstM = moment(unix,"X").startOf('day').add(12,'hours');
+              var first = firstM.format("YYYY-MM-DD");
+
+              var secondM = firstM.clone().add(2,'months').endOf('month').startOf('day').add(12,'hours');
+              var second = secondM.format("YYYY-MM-DD");  
+
+          } else {
+
+              var firstM = moment(lastUnix,"X").subtract(2, "months").startOf('month').startOf('day').add(12,'hours');
+              var first = firstM.format("YYYY-MM-DD");
+
+              var secondM = moment(lastUnix,"X").startOf('day').add(12,'hours');
+              var second = secondM.format("YYYY-MM-DD");
+
+          }
+
+
   
           //save all days into an array, because the api is responding only with a list of available days
           //later we compare this list with the available days to get unavailable days
@@ -2253,47 +2261,175 @@ jQuery(document).ready(function($){
 
   }
 
+   $(".ob-zcalendar-title").on("click", function() {
+    $("#mobile-accept-date").click();
+   });
 
 
-  // LOAD MORE MONTHS
-  document.getElementById("calendar-holder").addEventListener("scroll", calendarScroll);
 
-  loadingFinished = true;
 
-  function calendarScroll() {
 
-            if ( resolution != 1 && $(".zcalendar-wrap").is(':visible') ) {
 
-              var calendar_element = $(".zcalendar");
 
-              if  (  $(window).scrollTop() + $(window).height()  >  $(calendar_element).offset().top + $(calendar_element).height() + 400  
-                &&  loadingFinished == true)  {
+// load more months on mobile  
 
-                loadingFinished = false;
+$("#calendar-holder").scroll(function(){ 
 
-                if ( $(".zc-month").length < 12) {
 
-                  scrolled_months = $(".zc-month").length;
+  if (  resolution != 1   &&  $(".zcalendar-wrap").is(':visible')   ) {
 
-                   widget.newRequest = true;
+    var calendar_element = $(".zcalendar");
 
-                   widget.drawCalendar("mobile");
+    if  (  $(window).scrollTop() + $(window).height()  >  $(calendar_element).offset().top + $(calendar_element).height() + 50 )  {
 
-                  // return;
+  
+      if ( $(".zc-month").length < 12) {
 
-                }
+        loadThreeMoreMonths();
 
-              }
+      }
 
-            }
+    }
 
   }
 
 
+});
 
- $(".ob-zcalendar-title").on("click", function() {
-  $("#mobile-accept-date").click();
- });
+
+
+
+function loadThreeMoreMonths() {
+
+  console.log("load 3");
+
+  scrolled_months = $(".zc-month").length;
+
+  widget.newRequest = true;
+
+  widget.drawCalendar("mobile");
+
+  $(".zc-dates").find('div[data-unix=' + this.startDate + ']').click(); 
+  $(".zc-dates").find('div[data-unix=' + endDate + ']').click(); 
+
+}
+
+
+
+// SHOW SELECTED DATES IN STEP 2,  trigger click on them
+// on mobile, if dates are not loaded, load them, then click
+
+this.startDate = moment( $("#date_from").val(), 'DDMMYYYY').unix() + 43200;
+var endDate = moment( $("#date_to").val(), 'DDMMYYYY').unix()  + 43200;
+
+
+if ( resolution == 1 ) {
+
+  $(".zc-dates").find('div[data-unix=' + this.startDate + ']').click(); 
+  $(".zc-dates").find('div[data-unix=' + endDate + ']').click(); 
+
+} else {
+
+  if (  $(".zc-dates").find('div[data-unix=' + this.startDate + ']').length > 0 &&  
+     $(".zc-dates").find('div[data-unix=' + endDate + ']').length > 0 ) {
+
+    $(".zc-dates").find('div[data-unix=' + this.startDate + ']').click(); 
+    $(".zc-dates").find('div[data-unix=' + endDate + ']').click(); 
+
+  }  else {
+
+      var checkIfCalendar = setInterval(checkIfCalendarIsFinished, 1000);
+
+      console.log("ovdeee");
+
+      function checkIfCalendarIsFinished() {
+
+        if (    $("#hotel_code").val() != "" &&  $("#hotel_code").val() != "0") { // if hotel is not selected, load more
+
+          var datesInCalendar = $(".zc-date[data-unix]");
+          var lastDate = datesInCalendar[datesInCalendar.length-1];
+
+
+          if ( $(lastDate).find(".zc-date-price").text() != ""  || $(lastDate).attr("data-open") === "false") {
+
+              if (  $(".zc-dates").find('div[data-unix=' + this.startDate + ']').length > 0 &&  
+                 $(".zc-dates").find('div[data-unix=' + endDate + ']').length > 0 ) {
+                  clearInterval(checkIfCalendar);
+              } else {
+
+                if ( $(".zc-month").length < 12) {
+                  loadThreeMoreMonths();
+                } else {
+                  clearInterval(checkIfCalendar);
+                }
+              }
+
+          }
+
+
+        } else {
+
+          if (  $(".zc-dates").find('div[data-unix=' + this.startDate + ']').length > 0 &&  
+                 $(".zc-dates").find('div[data-unix=' + endDate + ']').length > 0 ) {
+                  clearInterval(checkIfCalendar);
+          } else {
+
+            if ( $(".zc-month").length < 12) {
+              loadThreeMoreMonths();
+            } else {
+              clearInterval(checkIfCalendar);
+            }
+          }
+
+        }
+
+      }
+
+
+  }
+
+
+}
+
+
+
+
+
+
+  // // LOAD MORE MONTHS
+  // document.getElementById("calendar-holder").addEventListener("scroll", calendarScroll);
+
+  // loadingFinished = true;
+
+  // function calendarScroll() {
+
+  //           if ( resolution != 1 && $(".zcalendar-wrap").is(':visible') ) {
+
+  //             var calendar_element = $(".zcalendar");
+
+  //             if  (  $(window).scrollTop() + $(window).height()  >  $(calendar_element).offset().top + $(calendar_element).height() + 400  
+  //               &&  loadingFinished == true)  {
+
+  //               loadingFinished = false;
+
+  //               if ( $(".zc-month").length < 12) {
+
+  //                 scrolled_months = $(".zc-month").length;
+
+  //                  widget.newRequest = true;
+
+  //                  widget.drawCalendar("mobile");
+
+  //                 // return;
+
+  //               }
+
+  //             }
+
+  //           }
+
+  // }
+
 
 
 

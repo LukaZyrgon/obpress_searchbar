@@ -1,4 +1,4 @@
-<form type="POST" action="/chain-results">
+<form type="POST" action="<?php if (empty(get_option('hotel_id'))) { echo '/chain-results';} else { echo '/hotel-results'; } ?> " class="searchbar-form">
     <div class="ob-searchbar obpress-hotel-searchbar-custom container" id="index" data-hotel-folders="<?php echo htmlspecialchars(json_encode($hotelFolders), ENT_QUOTES, 'UTF-8'); ?>">
         <div class="ob-searchbar-hotel">
             <p>
@@ -24,7 +24,7 @@
                 echo 'single-hotel';
             } ?>" spellcheck="false" autocomplete="off" readonly>
 
-            <input type="hidden" name="c" value="<?php echo get_option('chain_id') ?>">
+            <input type="hidden" name="c" id="chain_code_searchbar" value="<?php echo get_option('chain_id') ?>">
             <input type="hidden" name="q" id="hotel_code" value="<?php echo ($_GET['q'] ?? '') ?>">
             <input type="hidden" name="currencyId" value="<?= (isset($_GET['currencyId'])) ? $_GET['currencyId'] : get_option('default_currency_id') ?>">
             <input type="hidden" name="lang" value="<?= (isset($_GET['lang'])) ? $_GET['lang'] : get_option('default_language_id') ?>">
