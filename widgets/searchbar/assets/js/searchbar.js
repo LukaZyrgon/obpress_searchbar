@@ -1829,6 +1829,8 @@ jQuery(document).ready(function($){
 
                           if ( allowed[0] == false  ) {
 
+                            $("#children-not-allowed").modal("show");
+
                             $(".ob-searchbar-submit").attr('disabled', 'disabled');
 
                             $("#children-not-allowed-phone").text(response[1]);
@@ -1888,6 +1890,7 @@ jQuery(document).ready(function($){
       $(".next-step-loader").css("display", "flex");
       $(".obpress-footer").hide();
       $(".elementor-section").hide();
+
       $(this).closest(".obpress-hotel-searchbar-custom").find(".select-occupancy-apply").click();
       $(this).closest(".obpress-hotel-searchbar-custom").find("#promo_code_apply").click();
       $("body > .container").hide();

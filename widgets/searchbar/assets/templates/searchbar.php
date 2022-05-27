@@ -1,5 +1,5 @@
 <form type="POST" action="<?php if (empty(get_option('hotel_id'))) { echo '/chain-results';} else { echo '/hotel-results'; } ?> " class="searchbar-form">
-    <div class="ob-searchbar obpress-hotel-searchbar-custom container" id="index" data-hotel-folders="<?php echo htmlspecialchars(json_encode($hotelFolders), ENT_QUOTES, 'UTF-8'); ?>">
+    <div class="ob-searchbar obpress-hotel-searchbar-custom container" id="index" data-hotel-folders="<?php echo htmlspecialchars(json_encode($hotelFolders), ENT_QUOTES, 'UTF-8'); ?>" >
         <div class="ob-searchbar-hotel">
             <p>
             <?php
@@ -259,5 +259,43 @@
     </div>
     <div class="search-loading-message">
         <?php _e("Please wait...", 'OBPressTheme') ?>
+
+<div class="modal" id="children-not-allowed" role="dialog" aria-hidden="true" >
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <img src="<?= get_template_directory_uri() ?>/assets/icons/iconGreyLight_Xclose.svg">
+            </button>
+
+            <div class="d-flex cancel-popup__contain">
+                <div class="d-flex justify-content-center cancel-popup__holder" >
+                    <div class="cancel-modal__icon"><img src="<?= get_template_directory_uri() ?>/assets/icons/icon_Modal_Warning.svg" ></div>
+                </div>                                  
+                <div>
+                    
+                    <div>
+                        <h5>
+                            <?php _e('Bookings with children not available', 'OBPress_SearchBarPlugin'); ?>     
+                        </h5>
+
+                        <p>
+                            <?php _e('For reservations with children please contact the hotel.', 'OBPress_SearchBarPlugin'); ?> 
+                            <?php _e('Phone:', 'OBPress_SearchBarPlugin'); ?> 
+                            <span id='children-not-allowed-phone'> </span> 
+                            <?php _e('Email:', 'OBPress_SearchBarPlugin'); ?>  
+                            <span id='children-not-allowed-email'>
+                        </p>
+                                    
+                        <button data-dismiss="modal" aria-label="Close" class="btn" data-toggle="modal" data-target="#modal-failed" data-dismiss="modal" aria-label="Close">
+                            <?php _e('Ok', 'OBPress_SearchBarPlugin'); ?> 
+                        </button>   
+                    </div>
+
+                </div> 
+            </div>
+
+        </div>
+
     </div>
 </div>
