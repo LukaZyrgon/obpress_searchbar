@@ -247,3 +247,17 @@
     </div>     
 
 </form>
+
+<div class="next-step-loader">
+    <div class="gooey">
+        <span class="dot"></span>
+        <div class="dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="search-loading-message">
+        <?php _e("Please wait...", 'OBPressTheme') ?>
+    </div>
+</div>

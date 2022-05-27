@@ -1884,11 +1884,13 @@ jQuery(document).ready(function($){
     });
 
     jQuery(document).on("click", ".ob-searchbar-submit", function() {
+      $('.next-step-loader').insertAfter('.obpress-header-spacer');
+      $(".next-step-loader").css("display", "flex");
+      $(".obpress-footer").hide();
+      $(".elementor-section").hide();
       $(this).closest(".obpress-hotel-searchbar-custom").find(".select-occupancy-apply").click();
       $(this).closest(".obpress-hotel-searchbar-custom").find("#promo_code_apply").click();
       $("body > .container").hide();
-      $(".next-step-loader").css("display", "flex");
-      $(".obpress-footer").hide();
       $(".grey-background").hide();
       $(this).closest(".modal-content").find(".close-modal").click();
     });
@@ -1931,6 +1933,8 @@ jQuery(document).ready(function($){
     $(document).on("click", ".remove-room-mobile", function() { 
       $(".add-room-holder .select-room-minus").click();
     });
+
+
 
 
     
