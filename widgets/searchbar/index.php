@@ -19,7 +19,16 @@ class Searchbar extends \Elementor\Widget_Base
 		wp_register_script( 'zcalendar_plugin_js', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/js/zcalendar.js'));
 
 		wp_register_style( 'zcalendar_plugin_css', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/css/zcalendar.css') );
-		wp_register_style( 'searchbar_plugin_css', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/css/searchbar.css') );		
+		wp_register_style( 'searchbar_plugin_css', plugins_url( '/OBPress_SearchBarPlugin/widgets/searchbar/assets/css/searchbar.css') );	
+
+
+		wp_register_style('prefix_bootstrap_css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css');
+		wp_enqueue_style('prefix_bootstrap_css');	
+
+
+		wp_register_script('prefix_bootstrap_js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js');
+
+		wp_enqueue_script('prefix_bootstrap_js');
 
 	}
 	

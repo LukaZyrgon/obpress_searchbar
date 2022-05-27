@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <g id="icon_Modal_Warning" transform="translate(-4 -4)">
+    <path id="Caminho_2360" data-name="Caminho 2360" d="M29,4A25,25,0,1,0,54,29,25,25,0,0,0,29,4Zm0,48.078A23.078,23.078,0,1,1,52.078,29,23.078,23.078,0,0,1,29,52.078Z" fill="#f8c286"/>
+    <path id="Caminho_2361" data-name="Caminho 2361" d="M13.143,33.156a1.416,1.416,0,0,0,1.412-1.416V7.981a1.412,1.412,0,1,0-2.825,0v23.76a1.412,1.412,0,0,0,1.413,1.415Z" transform="translate(16.426 5.459)" fill="#f8c286"/>
+    <circle id="Elipse_25" data-name="Elipse 25" cx="2.259" cy="2.259" r="2.259" transform="translate(27.019 41.162)" fill="#f8c286"/>
+  </g>
+</svg>

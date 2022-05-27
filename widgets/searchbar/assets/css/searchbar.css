@@ -704,8 +704,54 @@ select:focus {
 }
 
 
+#children-not-allowed  {
+  background-color: rgba(0,0,0,0.8);
+}
 
 
+#children-not-allowed .close {
+  position: absolute;
+  right: 0;
+  padding: 10px;
+  z-index: 10;
+  appearance: unset;
+  background-color: #fff;
+  border: 0px;
+}
+
+#children-not-allowed .close img  { 
+  height: 17px;
+  width: 17px;
+}
+
+#children-not-allowed  h5 {
+   font-size: 18px;
+}
+
+#children-not-allowed  p { 
+  font-size: 14px;
+}
+
+#children-not-allowed  .btn {
+  float: right;
+  min-width: 130px;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.15;
+  text-align: center;
+  padding: 14px;
+  border-radius: 50px;
+  background: #455A64 !important;
+  color: #fff;
+}
+
+#children-not-allowed .cancel-popup__contain {  
+  padding: 20px;
+}
+
+#children-not-allowed  .justify-content-center {
+  margin-right: 15px;
+}
 
 
 
