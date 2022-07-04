@@ -297,6 +297,7 @@ input:focus {
 
 .single-hotel {
   pointer-events: none;
+  background-image: none !important;
 }
 
 #promo_code_dropdown {
