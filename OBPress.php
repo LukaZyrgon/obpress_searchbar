@@ -12,10 +12,10 @@
 
 
 //Init language files and check for localization
-function language_init() {
-  load_plugin_textdomain( 'obpress', false, '/OBPress_SearchBarPlugin/languages' );
+function language_init_obpress_searchbar() {
+  load_plugin_textdomain( 'OBPress_SearchBarPlugin', false, '/OBPress_SearchBarPlugin/languages' );
 }
-add_action('init', 'language_init');
+add_action('init', 'language_init_obpress_searchbar');
 
 //Register Ajax Calls file
 if(file_exists(WP_CONTENT_DIR . '/plugins/obpress_plugin_manager/BeApi/BeApi.php')){
