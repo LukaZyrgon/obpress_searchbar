@@ -138,12 +138,24 @@ button:disabled {
     cursor: pointer;
 }
 
+.ob-searchbar-hotel input , .ob-searchbar-calendar input , .ob-searchbar-guests input {
+  background-image: url(../../assets/icons/down.png);
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: center;
+  cursor: pointer;
+}
+
 #promo_code {
     background-image: url(../../assets/icons/down.png);
     background-repeat: no-repeat;
     background-position-x: right;
     background-position-y: center;
     cursor: pointer;
+}
+
+.opened #hotels, .opened #calendar_dates, .opened #guests, .opened #promo_code {
+  background-image: url(../../assets/icons/up.png)
 }
 
 #index input::-webkit-input-placeholder {

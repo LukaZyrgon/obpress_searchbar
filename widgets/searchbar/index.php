@@ -302,7 +302,7 @@ class Searchbar extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
 				'selectors' => [
-					'.ob-searchbar-hotel.opened, .hotels_all, .hotels_folder, .hotels_hotel, .ob-searchbar-guests.opened, #occupancy_dropdown, .ob-searchbar-promo.opened, #promo_code_dropdown' => 'background-color: {{obpress_searchbar_dropdown_background_color}}'
+					'.ob-searchbar-hotel.opened, .hotels_all, .hotels_folder, .hotels_hotel, .ob-searchbar-calendar.opened , .ob-searchbar-guests.opened, #occupancy_dropdown, .ob-searchbar-promo.opened, #promo_code_dropdown, .opened #hotels , .opened #calendar_dates , .opened #guests , .opened #promo_code, #promo_code_dropdown input ' => 'background-color: {{obpress_searchbar_dropdown_background_color}}!important'
 				],
 			]
 		);
@@ -429,7 +429,7 @@ class Searchbar extends \Elementor\Widget_Base
 				'input_type' => 'color',
 				'default' => '#fff',
 				'selectors' => [
-					'.ob-searchbar-calendar.opened, .zcalendar' => 'background-color: {{obpress_searchbar_calendar_background_color}}'
+					'.zcalendar' => 'background-color: {{obpress_searchbar_calendar_background_color}}!important'
 				],				
 			]
 		);
