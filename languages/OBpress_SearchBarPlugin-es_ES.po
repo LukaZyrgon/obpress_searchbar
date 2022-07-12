@@ -3,8 +3,6 @@
 # https://wpml.org
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: WPML_EXPORT_OBPress_SearchBarPlugin\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
@@ -12,7 +10,9 @@ msgstr ""
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
-"X-Generator: Poedit 2.4.3\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.1\n"
 
 # wpml-name: 6f3a40c066636a288c15cf49ef68accd
 #: 'default' => '#3c3c3c', 'selectors' [ '.zcalendar [data-title]:after'
@@ -194,23 +194,23 @@ msgstr "Hotel"
 
 # wpml-name: f639c98ab11b4d85293a5ecb9c1b752d
 msgid "system_max"
-msgstr ""
+msgstr "máximo_del_sistema"
 
 # wpml-name: 964efa74b67fdd60491bccd047ca3b0c
 msgid "system_min"
-msgstr ""
+msgstr "mínimo_del_sistema"
 
 # wpml-name: 6143256dad5fcc75614b6a412a32e2ce
 msgid "calendar_closed_on_departure"
-msgstr ""
+msgstr "calendario_cerrado_a_la_salida"
 
 # wpml-name: 5a881891b4d0973709a49ec616b4cc67
 msgid "calendar_closed_on_arrival"
-msgstr ""
+msgstr "calendario_cerrado_a_la_llegada"
 
 # wpml-name: 7126f6c3eb5f5078a6bb2aa7e11ba1a3
 msgid "index_no_availability_v4"
-msgstr ""
+msgstr "índice_sin_disponibilidad_v4"
 
 # wpml-name: edb32e665bc02ed4f60eabaf01535c41
 msgid "Restricted Days"
