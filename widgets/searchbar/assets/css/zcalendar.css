@@ -243,8 +243,8 @@
 	margin-top:4px;
 }
 
-.zc-date-price{
-	font-size: 14px;
+.zc-date-price , .zc-date-price-decimals {
+	font-size: 12px;
 }
 
 
