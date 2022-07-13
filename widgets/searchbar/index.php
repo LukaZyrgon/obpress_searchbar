@@ -380,6 +380,19 @@ class Searchbar extends \Elementor\Widget_Base
 		);
 
 		$this->add_control(
+			'obpress_searchbar_button_hover_background_color',
+			[
+				'label' => __('Button Hover Background Color', 'OBPress_General_Widgets'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#fff',
+				'selectors' => [
+					'.ob-searchbar-submit:hover, .select-occupancy-apply:hover, .select-button:not(disabled):hover, #promo_code_apply:hover' => 'background-color: {{obpress_searchbar_button_hover_background_color}}'
+				],				
+			]
+		);
+
+		$this->add_control(
 			'obpress_searchbar_button_text_color',
 			[
 				'label' => __('Button Text Color', 'OBPress_General_Widgets'),
@@ -388,6 +401,19 @@ class Searchbar extends \Elementor\Widget_Base
 				'default' => '#fff',
 				'selectors' => [
 					'.ob-searchbar-submit, .select-occupancy-apply, .select-button:not(disabled), #promo_code_apply' => 'color: {{obpress_searchbar_button_text_color}}'
+				],				
+			]
+		);
+
+		$this->add_control(
+			'obpress_searchbar_button_hover_text_color',
+			[
+				'label' => __('Button Hover Text Color', 'OBPress_General_Widgets'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#191919',
+				'selectors' => [
+					'.ob-searchbar-submit:hover, .select-occupancy-apply:hover, .select-button:not(disabled):hover, #promo_code_apply:hover' => 'color: {{obpress_searchbar_button_hover_text_color}} !important'
 				],				
 			]
 		);
@@ -409,6 +435,19 @@ class Searchbar extends \Elementor\Widget_Base
 				'selector' => '.ob-searchbar-submit',
 			]
 		);
+
+		$this->add_control(
+			'obpress_searchbar_button_hover_border_color',
+			[
+				'label' => __('Button Hover Border Color', 'OBPress_General_Widgets'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'input_type' => 'color',
+				'default' => '#191919',
+				'selectors' => [
+					'.ob-searchbar-submit:hover, .select-occupancy-apply:hover, .select-button:not(disabled):hover, #promo_code_apply:hover' => 'border-color: {{obpress_searchbar_button_hover_text_color}} !important'
+				],				
+			]
+		);		
 
 
 		$this->end_controls_section();

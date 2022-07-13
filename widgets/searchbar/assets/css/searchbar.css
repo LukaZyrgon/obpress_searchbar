@@ -196,6 +196,7 @@ button:disabled {
   font-size: 14px;
   margin-top: 9px;
   height: 30px;
+  border: 1px solid #000;
 }
 
 #promo_code_dropdown input {
@@ -636,7 +637,7 @@ select:focus {
   padding: 0px;
   /* margin-bottom: 20px; */
   color: #fff;
-  border: 0px;
+  border: 1px solid #000;
 }
 
 .select-occupancy-apply:hover {
