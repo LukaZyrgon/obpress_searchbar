@@ -123,7 +123,7 @@ button:disabled {
 .ob-searchbar-guests input,
 .ob-searchbar-promo input,
 .ob-searchbar-hotel input {
-  border: 0px;
+  border: 1px solid transparent;
   border-bottom: 1px solid #76767629;
   font-size: 14px;
   padding: 7px 0px;
@@ -145,6 +145,12 @@ button:disabled {
   background-position-y: center;
   cursor: pointer;
 }
+
+.ob-searchbar-hotel input:hover, .ob-searchbar-calendar input:hover, .ob-searchbar-guests input:hover, #promo_code:hover {
+  border-radius: 4px;
+  border: 1px solid lightgrey;    
+} 
+
 
 #promo_code {
     background-image: url(../../assets/icons/down.png);

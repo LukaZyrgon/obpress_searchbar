@@ -466,7 +466,7 @@ class Searchbar extends \Elementor\Widget_Base
 				'label' => __('Calendar Background Color', 'OBPress_General_Widgets'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'input_type' => 'color',
-				'default' => '#fff',
+				'default' => '##F5F5F5',
 				'selectors' => [
 					'.zcalendar' => 'background-color: {{obpress_searchbar_calendar_background_color}}!important'
 				],				
